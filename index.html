@@ -236,6 +236,13 @@ main{padding-bottom:120px}
 .topbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--bg);padding:8px 0;margin-top:-8px;box-shadow:0 6px 8px -6px rgba(47,42,134,.35)}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:11;background:var(--bg)}
 .f7badge{margin-left:auto;align-self:center;flex:none;font-family:var(--disp);font-size:28px;line-height:1;letter-spacing:.04em;color:#f5cf3a;background:#2f2a86;border:2px solid #f5cf3a;border-radius:8px;padding:6px 10px 3px;transform:rotate(-6deg);box-shadow:0 3px 0 rgba(47,42,134,.35)}
+
+/* Fin de partie à 200 points */
+.result{text-align:center}
+.result .big{font-family:var(--disp);font-size:46px;line-height:1.05;letter-spacing:.02em;color:#2f2a86}
+.result .small{font-family:var(--disp);font-size:24px;letter-spacing:.04em;color:var(--muted);margin-top:4px}
+.result.tie .big{color:#ec4f3f;-webkit-text-stroke:1px #2f2a86;paint-order:stroke fill}
+.tiebar{font-family:var(--disp);font-size:24px;letter-spacing:.04em;text-align:center;color:#fff7dc;background:#ec4f3f;border:2px solid #2f2a86;border-radius:10px;padding:6px 10px 3px;margin-bottom:12px}
 </style>
 </head>
 <body>
@@ -276,10 +283,10 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   }
   var LANGS=['fr','en','de','es'];
   var I18N={
-    fr:{howMany:'Combien de joueurs ?',fewer:'Moins de joueurs',more:'Plus de joueurs',range:'joueurs (2 à 12)',nameN:'Nom du joueur {0}',playerN:'Joueur {0}',start:'Commencer la partie',notPlaying:'Ne joue pas',putBack:'Remettre',totalC:'Total : {0}',total:'Total',round:'Manche {0}',board:'Tableau',abandon:'Abandon',validate:'Valider la manche',player:'Joueur',rShort:'M',scoreboard:'Tableau des scores',backTo:'Retour à la manche {0}',roundDone:'Manche {0} validée',next:'Manche suivante',fix:'Corriger la manche',newGame:'Nouvelle partie',confAbandon:'Confirmer l’abandon',confReset:'Confirmer : tout effacer',noRound:'Aucune manche validée',needOne:'Au moins un joueur doit jouer',card:'Carte {0}',target:'CIBLEZ UN JOUEUR',subTxt:'SOUSTRAYEZ {0} À VOTRE SCORE',halfTxt:'DIVISEZ VOTRE SCORE PAR DEUX',lucky:'PORTE-BONHEUR',zeroName:'LE ZÉRO'},
-    en:{howMany:'How many players?',fewer:'Fewer players',more:'More players',range:'players (2 to 12)',nameN:'Player {0} name',playerN:'Player {0}',start:'Start game',notPlaying:'Not playing',putBack:'Bring back',totalC:'Total: {0}',total:'Total',round:'Round {0}',board:'Scores',abandon:'Quit',validate:'Confirm round',player:'Player',rShort:'R',scoreboard:'Scoreboard',backTo:'Back to round {0}',roundDone:'Round {0} confirmed',next:'Next round',fix:'Fix round',newGame:'New game',confAbandon:'Confirm quit',confReset:'Confirm: erase all',noRound:'No round confirmed yet',needOne:'At least one player must play',card:'Card {0}',target:'TARGET A PLAYER',subTxt:'SUBTRACT {0} FROM YOUR SCORE',halfTxt:'DIVIDE YOUR SCORE BY TWO',lucky:'LUCKY CHARM',zeroName:'ZERO'},
-    de:{howMany:'Wie viele Spieler?',fewer:'Weniger Spieler',more:'Mehr Spieler',range:'Spieler (2 bis 12)',nameN:'Name von Spieler {0}',playerN:'Spieler {0}',start:'Spiel starten',notPlaying:'Spielt nicht',putBack:'Zurückholen',totalC:'Gesamt: {0}',total:'Gesamt',round:'Runde {0}',board:'Punkte',abandon:'Aufgeben',validate:'Runde bestätigen',player:'Spieler',rShort:'R',scoreboard:'Punktetabelle',backTo:'Zurück zu Runde {0}',roundDone:'Runde {0} bestätigt',next:'Nächste Runde',fix:'Runde korrigieren',newGame:'Neues Spiel',confAbandon:'Aufgeben bestätigen',confReset:'Bestätigen: alles löschen',noRound:'Noch keine Runde bestätigt',needOne:'Mindestens ein Spieler muss spielen',card:'Karte {0}',target:'WÄHLE EINEN SPIELER',subTxt:'ZIEHE {0} VON DEINEN PUNKTEN AB',halfTxt:'TEILE DEINE PUNKTE DURCH ZWEI',lucky:'GLÜCKSBRINGER',zeroName:'NULL'},
-    es:{howMany:'¿Cuántos jugadores?',fewer:'Menos jugadores',more:'Más jugadores',range:'jugadores (2 a 12)',nameN:'Nombre del jugador {0}',playerN:'Jugador {0}',start:'Empezar la partida',notPlaying:'No juega',putBack:'Reincorporar',totalC:'Total: {0}',total:'Total',round:'Ronda {0}',board:'Marcador',abandon:'Abandonar',validate:'Confirmar ronda',player:'Jugador',rShort:'R',scoreboard:'Tabla de puntuación',backTo:'Volver a la ronda {0}',roundDone:'Ronda {0} confirmada',next:'Siguiente ronda',fix:'Corregir ronda',newGame:'Nueva partida',confAbandon:'Confirmar abandono',confReset:'Confirmar: borrar todo',noRound:'Ninguna ronda confirmada',needOne:'Al menos un jugador debe jugar',card:'Carta {0}',target:'ELIGE UN JUGADOR',subTxt:'RESTA {0} A TU PUNTUACIÓN',halfTxt:'DIVIDE TU PUNTUACIÓN ENTRE DOS',lucky:'AMULETO',zeroName:'CERO'}
+    fr:{howMany:'Combien de joueurs ?',fewer:'Moins de joueurs',more:'Plus de joueurs',range:'joueurs (2 à 12)',nameN:'Nom du joueur {0}',playerN:'Joueur {0}',start:'Commencer la partie',notPlaying:'Ne joue pas',putBack:'Remettre',totalC:'Total : {0}',total:'Total',round:'Manche {0}',board:'Tableau',abandon:'Abandon',validate:'Valider la manche',player:'Joueur',rShort:'M',scoreboard:'Tableau des scores',backTo:'Retour à la manche {0}',roundDone:'Manche {0} validée',next:'Manche suivante',fix:'Corriger la manche',newGame:'Nouvelle partie',confAbandon:'Confirmer l’abandon',confReset:'Confirmer : tout effacer',noRound:'Aucune manche validée',needOne:'Au moins un joueur doit jouer',card:'Carte {0}',target:'CIBLEZ UN JOUEUR',subTxt:'SOUSTRAYEZ {0} À VOTRE SCORE',halfTxt:'DIVISEZ VOTRE SCORE PAR DEUX',lucky:'PORTE-BONHEUR',zeroName:'LE ZÉRO',goal:'Premier à 200 points.',winner:'🏆 {0} gagne !',winnerSub:'{0} points – fin de la partie',tie:'Égalité à {0} points',tieSub:'{0} : manche décisive !',tieRound:'Égalité – manche décisive'},
+    en:{howMany:'How many players?',fewer:'Fewer players',more:'More players',range:'players (2 to 12)',nameN:'Player {0} name',playerN:'Player {0}',start:'Start game',notPlaying:'Not playing',putBack:'Bring back',totalC:'Total: {0}',total:'Total',round:'Round {0}',board:'Scores',abandon:'Quit',validate:'Confirm round',player:'Player',rShort:'R',scoreboard:'Scoreboard',backTo:'Back to round {0}',roundDone:'Round {0} confirmed',next:'Next round',fix:'Fix round',newGame:'New game',confAbandon:'Confirm quit',confReset:'Confirm: erase all',noRound:'No round confirmed yet',needOne:'At least one player must play',card:'Card {0}',target:'TARGET A PLAYER',subTxt:'SUBTRACT {0} FROM YOUR SCORE',halfTxt:'DIVIDE YOUR SCORE BY TWO',lucky:'LUCKY CHARM',zeroName:'ZERO',goal:'First to 200 points.',winner:'🏆 {0} wins!',winnerSub:'{0} points – game over',tie:'Tie at {0} points',tieSub:'{0}: tiebreaker round!',tieRound:'Tie – tiebreaker round'},
+    de:{howMany:'Wie viele Spieler?',fewer:'Weniger Spieler',more:'Mehr Spieler',range:'Spieler (2 bis 12)',nameN:'Name von Spieler {0}',playerN:'Spieler {0}',start:'Spiel starten',notPlaying:'Spielt nicht',putBack:'Zurückholen',totalC:'Gesamt: {0}',total:'Gesamt',round:'Runde {0}',board:'Punkte',abandon:'Aufgeben',validate:'Runde bestätigen',player:'Spieler',rShort:'R',scoreboard:'Punktetabelle',backTo:'Zurück zu Runde {0}',roundDone:'Runde {0} bestätigt',next:'Nächste Runde',fix:'Runde korrigieren',newGame:'Neues Spiel',confAbandon:'Aufgeben bestätigen',confReset:'Bestätigen: alles löschen',noRound:'Noch keine Runde bestätigt',needOne:'Mindestens ein Spieler muss spielen',card:'Karte {0}',target:'WÄHLE EINEN SPIELER',subTxt:'ZIEHE {0} VON DEINEN PUNKTEN AB',halfTxt:'TEILE DEINE PUNKTE DURCH ZWEI',lucky:'GLÜCKSBRINGER',zeroName:'NULL',goal:'Wer zuerst 200 Punkte hat, gewinnt.',winner:'🏆 {0} gewinnt!',winnerSub:'{0} Punkte – Spielende',tie:'Gleichstand bei {0} Punkten',tieSub:'{0}: Entscheidungsrunde!',tieRound:'Gleichstand – Entscheidungsrunde'},
+    es:{howMany:'¿Cuántos jugadores?',fewer:'Menos jugadores',more:'Más jugadores',range:'jugadores (2 a 12)',nameN:'Nombre del jugador {0}',playerN:'Jugador {0}',start:'Empezar la partida',notPlaying:'No juega',putBack:'Reincorporar',totalC:'Total: {0}',total:'Total',round:'Ronda {0}',board:'Marcador',abandon:'Abandonar',validate:'Confirmar ronda',player:'Jugador',rShort:'R',scoreboard:'Tabla de puntuación',backTo:'Volver a la ronda {0}',roundDone:'Ronda {0} confirmada',next:'Siguiente ronda',fix:'Corregir ronda',newGame:'Nueva partida',confAbandon:'Confirmar abandono',confReset:'Confirmar: borrar todo',noRound:'Ninguna ronda confirmada',needOne:'Al menos un jugador debe jugar',card:'Carta {0}',target:'ELIGE UN JUGADOR',subTxt:'RESTA {0} A TU PUNTUACIÓN',halfTxt:'DIVIDE TU PUNTUACIÓN ENTRE DOS',lucky:'AMULETO',zeroName:'CERO',goal:'Gana el primero en llegar a 200 puntos.',winner:'🏆 ¡{0} gana!',winnerSub:'{0} puntos – fin de la partida',tie:'Empate a {0} puntos',tieSub:'{0}: ¡ronda de desempate!',tieRound:'Empate – ronda de desempate'}
   };
   var CARDN={
     fr:['UN','DEUX','TROIS','QUATRE','CINQ','SIX','SEPT','HUIT','NEUF','DIX','ONZE','DOUZE','TREIZE'],
@@ -315,6 +322,17 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
       return state.history.reduce(function(t,r){ return t + (r[i]||0); },0);
     });
   }
+  /* Fin de partie : dès qu'un joueur atteint 200, le meilleur total gagne ; en cas d'égalité, on rejoue une manche */
+  var GOAL = 200;
+  function result(){
+    if(!state.history.length) return null;
+    var tot = totals(), ids = state.players.map(function(p,i){ return i; }).filter(function(i){ return !(state.out && state.out[i]); });
+    if(!ids.length) return null;
+    var max = Math.max.apply(null, ids.map(function(i){ return tot[i]; }));
+    if(max < GOAL) return null;
+    var top = ids.filter(function(i){ return tot[i]===max; });
+    return { max:max, top:top, winner: top.length===1 ? top[0] : null };
+  }
   function toggle(arr,v){
     var k = arr.indexOf(v);
     if(k>=0) arr.splice(k,1); else arr.push(v);
@@ -330,7 +348,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
   /* ---------- Page 1 : joueurs ---------- */
   function renderSetup(){
-    var h = '<h1>Flip 7 Vengeance</h1><p class="sub">'+tr('howMany')+'</p>';
+    var h = '<h1>Flip 7 Vengeance</h1><p class="sub">'+tr('goal')+' '+tr('howMany')+'</p>';
     h += '<div class="panel"><div class="stepper">'
       + '<button type="button" data-a="minus" aria-label="'+tr('fewer')+'">−</button>'
       + '<output>'+state.count+'</output>'
@@ -469,6 +487,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
     var h = '<div class="topbar"><div class="round">'+tr('round',state.round)+'</div>'
       + '<div style="display:flex;gap:8px"><button type="button" class="ghost" data-a="scoreboard">'+tr('board')+'</button>'
       + '<button type="button" class="ghost" data-a="abandon">'+tr('abandon')+'</button></div></div>';
+    var res = result();
+    if(res && res.winner===null) h += '<div class="tiebar">'+tr('tieRound')+'</div>';
     for(var i=0;i<state.players.length;i++) h += playerCard(i);
     h += '<div class="sticky"><button type="button" class="primary" data-a="validate">'+tr('validate')+'</button></div>';
     app.innerHTML = h;
@@ -483,14 +503,14 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
   /* ---------- Récap / tableau ---------- */
   function scoreboardHtml(){
-    var tot = totals(), vis = tot.filter(function(v,i){ return !(state.out && state.out[i]); }), max = Math.max.apply(null, vis.length ? vis : tot);
+    var tot = totals(), vis = tot.filter(function(v,i){ return !(state.out && state.out[i]); }), max = Math.max.apply(null, vis.length ? vis : tot), res = result();
     var h = '<div class="panel scroll"><table><thead><tr><th>'+tr('player')+'</th>';
     state.history.forEach(function(r,k){ h += '<th>'+tr('rShort')+(k+1)+'</th>'; });
     h += '<th>'+tr('total')+'</th></tr></thead><tbody>';
     state.players.map(function(p,i){ return i; }).sort(function(a,b){ return tot[b]-tot[a]; }).forEach(function(i){
       var p = state.players[i];
       if(state.out && state.out[i]) return;
-      h += '<tr'+(tot[i]===max && state.history.length?' class="lead"':'')+'><td><span class="pdot" style="background:'+pcol(i)+'"></span>'+esc(p)+'</td>';
+      h += '<tr'+(tot[i]===max && state.history.length?' class="lead"':'')+'><td><span class="pdot" style="background:'+pcol(i)+'"></span>'+(res && res.winner===i ? '🏆 ' : '')+esc(p)+'</td>';
       state.history.forEach(function(r){ h += '<td class="rs">'+(r[i]===null||r[i]===undefined?'–':r[i])+'</td>'; });
       h += '<td class="total">'+tot[i]+'</td></tr>';
     });
@@ -503,10 +523,23 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
         + '<button type="button" class="primary" data-a="back">'+tr('backTo',state.round)+'</button>';
       return;
     }
-    var h = '<div class="topbar"><div class="round">'+tr('roundDone',done)+'</div></div>' + scoreboardHtml();
-    h += '<button type="button" class="primary" data-a="next">'+tr('next')+'</button>'
-      + '<div class="row-actions"><button type="button" class="ghost" data-a="undo">'+tr('fix')+'</button>'
-      + '<button type="button" class="ghost" data-a="reset">'+tr('newGame')+'</button></div>';
+    var res = result();
+    var h = '<div class="topbar"><div class="round">'+tr('roundDone',done)+'</div></div>';
+    if(res && res.winner!==null){
+      h += '<div class="panel result"><div class="big">'+tr('winner',esc(state.players[res.winner]))+'</div><div class="small">'+tr('winnerSub',res.max)+'</div></div>';
+    } else if(res){
+      h += '<div class="panel result tie"><div class="big">'+tr('tie',res.max)+'</div><div class="small">'
+        + tr('tieSub',res.top.map(function(i){ return esc(state.players[i]); }).join(' &amp; '))+'</div></div>';
+    }
+    h += scoreboardHtml();
+    if(res && res.winner!==null){
+      h += '<button type="button" class="primary" data-a="reset">'+tr('newGame')+'</button>'
+        + '<div class="row-actions"><button type="button" class="ghost" data-a="undo">'+tr('fix')+'</button></div>';
+    } else {
+      h += '<button type="button" class="primary" data-a="next">'+tr('next')+'</button>'
+        + '<div class="row-actions"><button type="button" class="ghost" data-a="undo">'+tr('fix')+'</button>'
+        + '<button type="button" class="ghost" data-a="reset">'+tr('newGame')+'</button></div>';
+    }
     app.innerHTML = h;
   }
 
