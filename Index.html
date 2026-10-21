@@ -355,6 +355,17 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .scroll table th:first-child,.scroll table td:first-child{padding-left:4px;padding-right:10px}
 .scroll table th:last-child,.scroll table td:last-child{padding-left:10px;padding-right:4px}
 </style>
+<script>
+/* Statistiques de visites GoatCounter : uniquement sur le site publié (github.io) */
+if(/\.github\.io$/.test(location.hostname)){
+  window.goatcounter = { endpoint: 'https://flip7-jeu.goatcounter.com/count' };
+  var gcs = document.createElement('script');
+  gcs.async = true;
+  gcs.src = 'https://gc.zgo.at/count.js';
+  gcs.setAttribute('data-goatcounter', 'https://flip7-jeu.goatcounter.com/count');
+  document.head.appendChild(gcs);
+}
+</script>
 </head>
 <body>
 <main id="app"></main>
