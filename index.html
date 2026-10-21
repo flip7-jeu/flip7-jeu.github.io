@@ -726,6 +726,13 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   app.addEventListener('keydown',function(e){
     if(e.key==='Enter' && e.target.classList && e.target.classList.contains('addname')){ var ok = app.querySelector('[data-a="addok"]'); if(ok) ok.click(); }
   });
+  document.addEventListener('keydown',function(e){
+    if(e.key !== 'Enter' || e.defaultPrevented) return;
+    var tg = e.target, tn = tg && tg.tagName;
+    if(tn === 'INPUT' || tn === 'TEXTAREA' || tn === 'BUTTON' || tn === 'SELECT') return;
+    var btn = state.phase === 'round' ? app.querySelector('[data-a="validate"]') : state.phase === 'recap' ? app.querySelector('[data-a="next"]') : null;
+    if(btn){ e.preventDefault(); btn.click(); }
+  });
   var lpTimer = null;
   app.addEventListener('pointerdown', function(e){
     var pn = e.target.closest && e.target.closest('.pname');
