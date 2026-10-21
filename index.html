@@ -224,6 +224,47 @@ td.total{font-size:26px}
 .lang{font-family:var(--disp);font-size:18px;letter-spacing:.04em;height:34px;min-width:44px;padding:0 8px;border:2px solid #2f2a86;border-radius:8px;background:#fffbea;color:#2f2a86}
 .lang.on{background:#2f2a86;color:#fff7dc}
 .f7plus{color:#fff7dc;margin-left:4px}
+.addp{display:flex;gap:8px;align-items:center}
+.addp input{flex:1;min-width:0;height:44px;padding:0 10px;font-family:var(--disp);font-size:24px;border:3px solid #2f2a86;border-radius:10px;background:#fffbea;color:#2f2a86}
+.addp .ghost{flex:none;height:44px;padding:0 14px}
+.topbar .round{font-size:44px;line-height:1}
+.topbar .ghost{height:36px;padding:0 10px;font-size:15px;border-radius:9px}
+.tchips{overflow:hidden}
+.tchip{flex:1 1 0;min-width:0;justify-content:center;padding:3px 6px 1px}
+.tchip b{max-width:none;min-width:0;overflow:hidden;text-overflow:clip}
+.scroll{overflow-x:auto;padding:0;margin:0;-webkit-overflow-scrolling:touch}
+.scroll table{border-collapse:separate;border-spacing:0}
+.scroll table th:first-child,.scroll table td:first-child{min-width:110px;padding-left:4px}
+.scroll table th:last-child,.scroll table td:last-child{min-width:64px;padding-right:4px}
+.scroll table th,.scroll table td{white-space:nowrap}
+.scroll table th:first-child,.scroll table td:first-child{position:sticky;left:0;z-index:2;background:#f8ecc4;box-shadow:6px 0 6px -6px rgba(47,42,134,.45)}
+.scroll table th:last-child,.scroll table td:last-child{position:sticky;right:0;z-index:2;background:#f8ecc4;box-shadow:-6px 0 6px -6px rgba(47,42,134,.45);padding-left:10px}
+.tv{min-width:42px;height:34px;padding:0 6px;font-family:var(--disp);font-size:22px;line-height:1;color:#2f2a86;background:#fffbea;border:2px solid #2f2a86;border-radius:6px}
+.hin.tin{display:inline-block;width:60px;height:34px;font-size:22px}
+.topbar{flex-wrap:wrap;row-gap:6px}
+.tchips{flex-basis:100%;display:flex;gap:6px;overflow-x:auto;padding-bottom:2px;-webkit-overflow-scrolling:touch}
+.tchip{flex:none;display:flex;align-items:center;gap:6px;padding:3px 8px 1px;border:2px solid #2f2a86;border-left:8px solid var(--pc);border-radius:8px;background:#fffbea;font-family:var(--disp);font-size:22px;line-height:1.1;letter-spacing:.03em;color:#2f2a86}
+.tchip b{font-weight:400;max-width:90px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--pc);-webkit-text-stroke:.6px #2f2a86;paint-order:stroke fill}
+.pright{display:flex;flex-direction:column;align-items:center;gap:12px;flex:none;width:104px}
+.phead{position:relative}
+.phead > div:first-child{flex:1;min-width:0}
+.phead .pscore,.phead .pedit{width:104px;min-width:104px;flex:none;box-sizing:border-box}
+.phead .f7badge{position:absolute;right:78px;top:-12px;z-index:2;margin:0}
+.grid[hidden]{display:none}
+.minib{flex:none;width:38px;height:38px;padding:0;border:2px solid #2f2a86;border-radius:8px;background:#fffbea;color:#2f2a86;font-size:22px;line-height:1}
+.phist{display:flex;align-items:flex-end;overflow-x:auto;margin-top:8px;padding-bottom:6px;word-break:normal;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
+.hc{flex:none;width:54px;text-align:center}
+.hp{flex:none;width:16px;text-align:center;font-family:var(--disp);font-size:26px;line-height:38px;color:var(--muted)}
+.hl{font-family:var(--disp);font-size:15px;letter-spacing:.06em;line-height:1;color:var(--muted);margin-bottom:3px}
+.hv,.hin{display:block;width:100%;height:38px;padding:0;font-family:var(--disp);font-size:28px;line-height:1;text-align:center;color:#2f2a86;background:#fffbea;border:2px solid #2f2a86;border-radius:7px}
+.hin{border-color:#f7941d;background:#fff}
+.phist{font-family:var(--disp);font-size:20px;letter-spacing:.04em;color:var(--muted);margin-top:4px;word-break:break-word}
+.pscore{cursor:pointer}
+.pscore.manual{outline:3px dashed #f7941d;outline-offset:3px}
+.pedit{display:flex;flex-direction:column;gap:4px;width:104px;flex:none}
+.pedit input{width:100%;height:56px;font-family:var(--disp);font-size:36px;text-align:center;border:3px solid #2f2a86;border-radius:10px;background:#fffbea;color:#2f2a86;box-shadow:inset 0 0 0 2px #f5cf3a}
+.pedit .ghost{flex:1;height:34px;padding:0;font-size:15px;font-family:var(--disp);letter-spacing:.04em}
+.f7badge{font-size:17px;padding:4px 7px 2px;border-width:1.5px;border-radius:6px;transform:rotate(-4deg)}
 section.panel[data-p]{border-left:12px solid var(--pc)}
 section.panel[data-p] .pname{color:var(--pc);-webkit-text-stroke:1.2px #2f2a86;paint-order:stroke fill}
 .pdot{display:inline-block;width:14px;height:14px;border-radius:50%;margin-right:8px;vertical-align:-1px;border:2px solid #2f2a86}
@@ -236,13 +277,6 @@ main{padding-bottom:120px}
 .topbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--bg);padding:8px 0;margin-top:-8px;box-shadow:0 6px 8px -6px rgba(47,42,134,.35)}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:11;background:var(--bg)}
 .f7badge{margin-left:auto;align-self:center;flex:none;font-family:var(--disp);font-size:28px;line-height:1;letter-spacing:.04em;color:#f5cf3a;background:#2f2a86;border:2px solid #f5cf3a;border-radius:8px;padding:6px 10px 3px;transform:rotate(-6deg);box-shadow:0 3px 0 rgba(47,42,134,.35)}
-
-/* Fin de partie à 200 points */
-.result{text-align:center}
-.result .big{font-family:var(--disp);font-size:46px;line-height:1.05;letter-spacing:.02em;color:#2f2a86}
-.result .small{font-family:var(--disp);font-size:24px;letter-spacing:.04em;color:var(--muted);margin-top:4px}
-.result.tie .big{color:#ec4f3f;-webkit-text-stroke:1px #2f2a86;paint-order:stroke fill}
-.tiebar{font-family:var(--disp);font-size:24px;letter-spacing:.04em;text-align:center;color:#fff7dc;background:#ec4f3f;border:2px solid #2f2a86;border-radius:10px;padding:6px 10px 3px;margin-bottom:12px}
 </style>
 </head>
 <body>
@@ -283,10 +317,10 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   }
   var LANGS=['fr','en','de','es'];
   var I18N={
-    fr:{howMany:'Combien de joueurs ?',fewer:'Moins de joueurs',more:'Plus de joueurs',range:'joueurs (2 à 12)',nameN:'Nom du joueur {0}',playerN:'Joueur {0}',start:'Commencer la partie',notPlaying:'Ne joue pas',putBack:'Remettre',totalC:'Total : {0}',total:'Total',round:'Manche {0}',board:'Tableau',abandon:'Abandon',validate:'Valider la manche',player:'Joueur',rShort:'M',scoreboard:'Tableau des scores',backTo:'Retour à la manche {0}',roundDone:'Manche {0} validée',next:'Manche suivante',fix:'Corriger la manche',newGame:'Nouvelle partie',confAbandon:'Confirmer l’abandon',confReset:'Confirmer : tout effacer',noRound:'Aucune manche validée',needOne:'Au moins un joueur doit jouer',card:'Carte {0}',target:'CIBLEZ UN JOUEUR',subTxt:'SOUSTRAYEZ {0} À VOTRE SCORE',halfTxt:'DIVISEZ VOTRE SCORE PAR DEUX',lucky:'PORTE-BONHEUR',zeroName:'LE ZÉRO',goal:'Premier à 200 points.',winner:'🏆 {0} gagne !',winnerSub:'{0} points – fin de la partie',tie:'Égalité à {0} points',tieSub:'{0} : manche décisive !',tieRound:'Égalité – manche décisive'},
-    en:{howMany:'How many players?',fewer:'Fewer players',more:'More players',range:'players (2 to 12)',nameN:'Player {0} name',playerN:'Player {0}',start:'Start game',notPlaying:'Not playing',putBack:'Bring back',totalC:'Total: {0}',total:'Total',round:'Round {0}',board:'Scores',abandon:'Quit',validate:'Confirm round',player:'Player',rShort:'R',scoreboard:'Scoreboard',backTo:'Back to round {0}',roundDone:'Round {0} confirmed',next:'Next round',fix:'Fix round',newGame:'New game',confAbandon:'Confirm quit',confReset:'Confirm: erase all',noRound:'No round confirmed yet',needOne:'At least one player must play',card:'Card {0}',target:'TARGET A PLAYER',subTxt:'SUBTRACT {0} FROM YOUR SCORE',halfTxt:'DIVIDE YOUR SCORE BY TWO',lucky:'LUCKY CHARM',zeroName:'ZERO',goal:'First to 200 points.',winner:'🏆 {0} wins!',winnerSub:'{0} points – game over',tie:'Tie at {0} points',tieSub:'{0}: tiebreaker round!',tieRound:'Tie – tiebreaker round'},
-    de:{howMany:'Wie viele Spieler?',fewer:'Weniger Spieler',more:'Mehr Spieler',range:'Spieler (2 bis 12)',nameN:'Name von Spieler {0}',playerN:'Spieler {0}',start:'Spiel starten',notPlaying:'Spielt nicht',putBack:'Zurückholen',totalC:'Gesamt: {0}',total:'Gesamt',round:'Runde {0}',board:'Punkte',abandon:'Aufgeben',validate:'Runde bestätigen',player:'Spieler',rShort:'R',scoreboard:'Punktetabelle',backTo:'Zurück zu Runde {0}',roundDone:'Runde {0} bestätigt',next:'Nächste Runde',fix:'Runde korrigieren',newGame:'Neues Spiel',confAbandon:'Aufgeben bestätigen',confReset:'Bestätigen: alles löschen',noRound:'Noch keine Runde bestätigt',needOne:'Mindestens ein Spieler muss spielen',card:'Karte {0}',target:'WÄHLE EINEN SPIELER',subTxt:'ZIEHE {0} VON DEINEN PUNKTEN AB',halfTxt:'TEILE DEINE PUNKTE DURCH ZWEI',lucky:'GLÜCKSBRINGER',zeroName:'NULL',goal:'Wer zuerst 200 Punkte hat, gewinnt.',winner:'🏆 {0} gewinnt!',winnerSub:'{0} Punkte – Spielende',tie:'Gleichstand bei {0} Punkten',tieSub:'{0}: Entscheidungsrunde!',tieRound:'Gleichstand – Entscheidungsrunde'},
-    es:{howMany:'¿Cuántos jugadores?',fewer:'Menos jugadores',more:'Más jugadores',range:'jugadores (2 a 12)',nameN:'Nombre del jugador {0}',playerN:'Jugador {0}',start:'Empezar la partida',notPlaying:'No juega',putBack:'Reincorporar',totalC:'Total: {0}',total:'Total',round:'Ronda {0}',board:'Marcador',abandon:'Abandonar',validate:'Confirmar ronda',player:'Jugador',rShort:'R',scoreboard:'Tabla de puntuación',backTo:'Volver a la ronda {0}',roundDone:'Ronda {0} confirmada',next:'Siguiente ronda',fix:'Corregir ronda',newGame:'Nueva partida',confAbandon:'Confirmar abandono',confReset:'Confirmar: borrar todo',noRound:'Ninguna ronda confirmada',needOne:'Al menos un jugador debe jugar',card:'Carta {0}',target:'ELIGE UN JUGADOR',subTxt:'RESTA {0} A TU PUNTUACIÓN',halfTxt:'DIVIDE TU PUNTUACIÓN ENTRE DOS',lucky:'AMULETO',zeroName:'CERO',goal:'Gana el primero en llegar a 200 puntos.',winner:'🏆 ¡{0} gana!',winnerSub:'{0} puntos – fin de la partida',tie:'Empate a {0} puntos',tieSub:'{0}: ¡ronda de desempate!',tieRound:'Empate – ronda de desempate'}
+    fr:{howMany:'Combien de joueurs ?',fewer:'Moins de joueurs',more:'Plus de joueurs',range:'joueurs (2 à 12)',nameN:'Nom du joueur {0}',playerN:'Joueur {0}',start:'Commencer la partie',notPlaying:'Ne joue pas',putBack:'Remettre',totalC:'Total : {0}',total:'Total',round:'Manche {0}',board:'Tableau',abandon:'Abandon',validate:'Valider la manche',player:'Joueur',rShort:'M',scoreboard:'Tableau des scores',backTo:'Retour à la manche {0}',roundDone:'Manche {0} validée',next:'Manche suivante',fix:'Corriger la manche',newGame:'Nouvelle partie',confAbandon:'Confirmer l’abandon',confReset:'Confirmer : tout effacer',noRound:'Aucune manche validée',needOne:'Au moins un joueur doit jouer',card:'Carte {0}',target:'CIBLEZ UN JOUEUR',subTxt:'SOUSTRAYEZ {0} À VOTRE SCORE',halfTxt:'DIVISEZ VOTRE SCORE PAR DEUX',lucky:'PORTE-BONHEUR',zeroName:'LE ZÉRO',addPlayer:'+ Joueur'},
+    en:{howMany:'How many players?',fewer:'Fewer players',more:'More players',range:'players (2 to 12)',nameN:'Player {0} name',playerN:'Player {0}',start:'Start game',notPlaying:'Not playing',putBack:'Bring back',totalC:'Total: {0}',total:'Total',round:'Round {0}',board:'Scores',abandon:'Quit',validate:'Confirm round',player:'Player',rShort:'R',scoreboard:'Scoreboard',backTo:'Back to round {0}',roundDone:'Round {0} confirmed',next:'Next round',fix:'Fix round',newGame:'New game',confAbandon:'Confirm quit',confReset:'Confirm: erase all',noRound:'No round confirmed yet',needOne:'At least one player must play',card:'Card {0}',target:'TARGET A PLAYER',subTxt:'SUBTRACT {0} FROM YOUR SCORE',halfTxt:'DIVIDE YOUR SCORE BY TWO',lucky:'LUCKY CHARM',zeroName:'ZERO',addPlayer:'+ Player'},
+    de:{howMany:'Wie viele Spieler?',fewer:'Weniger Spieler',more:'Mehr Spieler',range:'Spieler (2 bis 12)',nameN:'Name von Spieler {0}',playerN:'Spieler {0}',start:'Spiel starten',notPlaying:'Spielt nicht',putBack:'Zurückholen',totalC:'Gesamt: {0}',total:'Gesamt',round:'Runde {0}',board:'Punkte',abandon:'Aufgeben',validate:'Runde bestätigen',player:'Spieler',rShort:'R',scoreboard:'Punktetabelle',backTo:'Zurück zu Runde {0}',roundDone:'Runde {0} bestätigt',next:'Nächste Runde',fix:'Runde korrigieren',newGame:'Neues Spiel',confAbandon:'Aufgeben bestätigen',confReset:'Bestätigen: alles löschen',noRound:'Noch keine Runde bestätigt',needOne:'Mindestens ein Spieler muss spielen',card:'Karte {0}',target:'WÄHLE EINEN SPIELER',subTxt:'ZIEHE {0} VON DEINEN PUNKTEN AB',halfTxt:'TEILE DEINE PUNKTE DURCH ZWEI',lucky:'GLÜCKSBRINGER',zeroName:'NULL',addPlayer:'+ Spieler'},
+    es:{howMany:'¿Cuántos jugadores?',fewer:'Menos jugadores',more:'Más jugadores',range:'jugadores (2 a 12)',nameN:'Nombre del jugador {0}',playerN:'Jugador {0}',start:'Empezar la partida',notPlaying:'No juega',putBack:'Reincorporar',totalC:'Total: {0}',total:'Total',round:'Ronda {0}',board:'Marcador',abandon:'Abandonar',validate:'Confirmar ronda',player:'Jugador',rShort:'R',scoreboard:'Tabla de puntuación',backTo:'Volver a la ronda {0}',roundDone:'Ronda {0} confirmada',next:'Siguiente ronda',fix:'Corregir ronda',newGame:'Nueva partida',confAbandon:'Confirmar abandono',confReset:'Confirmar: borrar todo',noRound:'Ninguna ronda confirmada',needOne:'Al menos un jugador debe jugar',card:'Carta {0}',target:'ELIGE UN JUGADOR',subTxt:'RESTA {0} A TU PUNTUACIÓN',halfTxt:'DIVIDE TU PUNTUACIÓN ENTRE DOS',lucky:'AMULETO',zeroName:'CERO',addPlayer:'+ Jugador'}
   };
   var CARDN={
     fr:['UN','DEUX','TROIS','QUATRE','CINQ','SIX','SEPT','HUIT','NEUF','DIX','ONZE','DOUZE','TREIZE'],
@@ -309,6 +343,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
   function isFlip7(sel){ return sel.nums.length + (sel.lucky ? 1 : 0) + (sel.zero ? 1 : 0) >= 7; }
   function score(sel){
+    if(sel.manual !== undefined && sel.manual !== null) return sel.manual;
     if(sel.zero && !isFlip7(sel)) return 0;
     var sum = 0, i;
     for(i=0;i<sel.nums.length;i++) sum += sel.nums[i];
@@ -322,17 +357,6 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
       return state.history.reduce(function(t,r){ return t + (r[i]||0); },0);
     });
   }
-  /* Fin de partie : dès qu'un joueur atteint 200, le meilleur total gagne ; en cas d'égalité, on rejoue une manche */
-  var GOAL = 200;
-  function result(){
-    if(!state.history.length) return null;
-    var tot = totals(), ids = state.players.map(function(p,i){ return i; }).filter(function(i){ return !(state.out && state.out[i]); });
-    if(!ids.length) return null;
-    var max = Math.max.apply(null, ids.map(function(i){ return tot[i]; }));
-    if(max < GOAL) return null;
-    var top = ids.filter(function(i){ return tot[i]===max; });
-    return { max:max, top:top, winner: top.length===1 ? top[0] : null };
-  }
   function toggle(arr,v){
     var k = arr.indexOf(v);
     if(k>=0) arr.splice(k,1); else arr.push(v);
@@ -344,11 +368,12 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
     else renderRecap();
     document.documentElement.lang = lang();
     if(state.phase==='setup') app.insertAdjacentHTML('afterbegin', langBar());
+    histScroll = 1e6; syncHist();
   }
 
   /* ---------- Page 1 : joueurs ---------- */
   function renderSetup(){
-    var h = '<h1>Flip 7 Vengeance</h1><p class="sub">'+tr('goal')+' '+tr('howMany')+'</p>';
+    var h = '<h1>Flip 7 Vengeance</h1><p class="sub">'+tr('howMany')+'</p>';
     h += '<div class="panel"><div class="stepper">'
       + '<button type="button" data-a="minus" aria-label="'+tr('fewer')+'">−</button>'
       + '<output>'+state.count+'</output>'
@@ -447,6 +472,64 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   }
 
   var PCOL=['#e83e6a','#1479d0','#f7941d','#2f9c3d','#a64ca6','#3fb6bd','#e3101c','#7b9fe0','#a3cd6b','#e07b7b','#a39080','#c9b800'];
+  var addMode = false, editIdx = null, histEdit = null, histScroll = 1e6, syncing = false;
+  function histLine(i){
+    if(!state.history.length) return '';
+    var h = '<div class="phist">';
+    state.history.forEach(function(r,k){
+      var v = r[i];
+      if(k>0) h += '<div class="hp">+</div>';
+      h += '<div class="hc"><div class="hl">'+tr('rShort')+(k+1)+'</div>';
+      if(histEdit && histEdit.p===i && histEdit.r===k) h += '<input class="hin" type="number" inputmode="numeric" data-hp="'+i+'" data-hr="'+k+'" value="'+(v==null?'':v)+'">';
+      else h += '<button type="button" class="hv" data-hp="'+i+'" data-hr="'+k+'">'+(v==null?'–':v)+'</button>';
+      h += '</div>';
+    });
+    return h + '</div>';
+  }
+  function abbr(name, max){
+    name = name.trim();
+    return name.length <= max ? name : name.slice(0, Math.max(1, max)).trim();
+  }
+  function abbrOld(name, max){
+    if(name.length <= max) return name;
+    var words = name.trim().split(/\s+/);
+    if(words.length > 1){
+      var a = words.map(function(w){ return /^\d+$/.test(w) ? w : w.charAt(0); }).join('');
+      if(a.length <= max) return a;
+    }
+    return max <= 1 ? name.charAt(0) : name.slice(0, max - 1) + '.';
+  }
+  function chipsHtml(){
+    var tot = totals(), h = '<div class="tchips">';
+    var n = state.players.filter(function(p,i){ return !(state.out && state.out[i]); }).length || 1;
+    var per = ((app.clientWidth || 360) - 6 * (n - 1)) / n;
+    var maxC = Math.max(1, Math.floor((per - 26 - 6 - 34) / 9));
+    state.players.forEach(function(p,i){
+      if(state.out && state.out[i]) return;
+      var live = tot[i] + (state.sel[i] ? score(state.sel[i]) : 0);
+      h += '<span class="tchip" style="--pc:'+pcol(i)+'" title="'+esc(p)+'"><b>'+esc(abbr(p, maxC))+'</b>'+live+'</span>';
+    });
+    return h + '</div>';
+  }
+  window.addEventListener('resize', function(){ updateChips(); });
+  function chipsHtmlOld(){
+    var tot = totals(), h = '<div class="tchips">';
+    state.players.forEach(function(p,i){
+      if(state.out && state.out[i]) return;
+      var live = tot[i] + (state.sel[i] ? score(state.sel[i]) : 0);
+      h += '<span class="tchip" style="--pc:'+pcol(i)+'"><b>'+esc(p)+'</b>'+live+'</span>';
+    });
+    return h + '</div>';
+  }
+  function updateChips(){
+    var c = app.querySelector('.tchips');
+    if(c) c.outerHTML = chipsHtml();
+  }
+  function syncHist(){
+    var els = app.querySelectorAll('.phist');
+    for(var k=0;k<els.length;k++) els[k].scrollLeft = histScroll;
+    if(els.length) histScroll = els[0].scrollLeft;
+  }
   function pcol(i){ return PCOL[i % PCOL.length]; }
   function zeroCard(){
     var id='z'+(uid++), sid='zs'+(uid++);
@@ -469,9 +552,9 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
       return '<section class="panel" data-p="'+i+'" style="--pc:'+pcol(i)+'"><div class="phead" style="margin:0;align-items:center"><div class="pname" style="opacity:.55">'+esc(p)+' – '+tr('notPlaying')+'</div><button type="button" class="ghost" data-p="'+i+'" data-o="1">'+tr('putBack')+'</button></div></section>';
     }
     var h = '<section class="panel" data-p="'+i+'" style="--pc:'+pcol(i)+'"><div class="phead"><div style="min-width:0">'
-      + '<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap"><div class="pname">'+esc(p)+'</div><div class="ptotal" style="font-family:var(--disp);font-size:28px;line-height:1;letter-spacing:.04em;color:var(--ink)">'+tr('totalC',t)+'</div></div></div>'
-      + (isFlip7(s) ? '<div class="f7badge">Flip 7 <span class="f7plus">+15</span></div>' : '') + '<div class="pscore'+(sc<0?' neg':'')+'" data-score="'+i+'">'+sc+'</div></div>';
-    h += '<div class="grid nums">';
+      + '<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap"><div class="pname">'+esc(p)+'</div><div class="ptotal" style="font-family:var(--disp);font-size:28px;line-height:1;letter-spacing:.04em;color:var(--ink)">'+tr('totalC',t)+'</div></div>'+histLine(i)+'</div>'
+      + (isFlip7(s) ? '<div class="f7badge">Flip 7 <span class="f7plus">+15</span></div>' : '') + '<div class="pright">'+(editIdx===i ? '<div class="pedit"><input type="number" inputmode="numeric" value="'+sc+'" aria-label="Score"><div style="display:flex;gap:4px"><button type="button" class="ghost" data-a="mok" data-i="'+i+'">OK</button><button type="button" class="ghost" data-a="mauto" data-i="'+i+'">Auto</button></div></div>' : '<div class="pscore'+(sc<0?' neg':'')+(s.manual!=null?' manual':'')+'" data-score="'+i+'">'+sc+'</div>')+'<button type="button" class="minib" data-p="'+i+'" data-m="1" aria-label="Cartes">'+((state.mini && state.mini[i]) ? '▾' : '▴')+'</button></div></div>';
+    h += '<div class="grid nums"'+((state.mini && state.mini[i]) ? ' hidden' : '')+'>';
     h += '<button type="button" class="card'+(s.zero?' on':'')+'" data-p="'+i+'" data-z="1" aria-label="'+tr('card','0')+'">'+zeroCard()+'</button>';
     NUMS.forEach(function(n){
       h += '<button type="button" class="card'+(s.nums.indexOf(n)>=0?' on':'')+'" data-p="'+i+'" data-n="'+n+'" aria-label="'+tr('card',n)+'">'+numberCard(n)+'</button>';
@@ -485,10 +568,9 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   }
   function renderRound(){
     var h = '<div class="topbar"><div class="round">'+tr('round',state.round)+'</div>'
-      + '<div style="display:flex;gap:8px"><button type="button" class="ghost" data-a="scoreboard">'+tr('board')+'</button>'
-      + '<button type="button" class="ghost" data-a="abandon">'+tr('abandon')+'</button></div></div>';
-    var res = result();
-    if(res && res.winner===null) h += '<div class="tiebar">'+tr('tieRound')+'</div>';
+      + '<div style="display:flex;gap:8px"><button type="button" class="ghost" data-a="scoreboard">'+tr('board')+'</button><button type="button" class="ghost" data-a="addp">'+tr('addPlayer')+'</button>'
+      + '<button type="button" class="ghost" data-a="abandon">'+tr('abandon')+'</button></div>'+chipsHtml()+'</div>';
+    if(addMode) h += '<div class="panel addp"><input class="addname" type="text" autocomplete="off" placeholder="'+tr('playerN', state.players.length + 1)+'"><button type="button" class="ghost" data-a="addok">OK</button><button type="button" class="ghost" data-a="addcancel">×</button></div>';
     for(var i=0;i<state.players.length;i++) h += playerCard(i);
     h += '<div class="sticky"><button type="button" class="primary" data-a="validate">'+tr('validate')+'</button></div>';
     app.innerHTML = h;
@@ -499,22 +581,23 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
     var tmp = document.createElement('div');
     tmp.innerHTML = playerCard(i);
     card.replaceWith(tmp.firstChild);
+    syncHist(); updateChips();
   }
 
   /* ---------- Récap / tableau ---------- */
   function scoreboardHtml(){
-    var tot = totals(), vis = tot.filter(function(v,i){ return !(state.out && state.out[i]); }), max = Math.max.apply(null, vis.length ? vis : tot), res = result();
-    var h = '<div class="panel scroll"><table><thead><tr><th>'+tr('player')+'</th>';
+    var tot = totals(), vis = tot.filter(function(v,i){ return !(state.out && state.out[i]); }), max = Math.max.apply(null, vis.length ? vis : tot);
+    var h = '<div class="panel"><div class="scroll"><table><thead><tr><th>'+tr('player')+'</th>';
     state.history.forEach(function(r,k){ h += '<th>'+tr('rShort')+(k+1)+'</th>'; });
     h += '<th>'+tr('total')+'</th></tr></thead><tbody>';
     state.players.map(function(p,i){ return i; }).sort(function(a,b){ return tot[b]-tot[a]; }).forEach(function(i){
       var p = state.players[i];
       if(state.out && state.out[i]) return;
-      h += '<tr'+(tot[i]===max && state.history.length?' class="lead"':'')+'><td><span class="pdot" style="background:'+pcol(i)+'"></span>'+(res && res.winner===i ? '🏆 ' : '')+esc(p)+'</td>';
-      state.history.forEach(function(r){ h += '<td class="rs">'+(r[i]===null||r[i]===undefined?'–':r[i])+'</td>'; });
+      h += '<tr'+(tot[i]===max && state.history.length?' class="lead"':'')+'><td><span class="pdot" style="background:'+pcol(i)+'"></span>'+esc(p)+'</td>';
+      state.history.forEach(function(r,k){ var v = r[i]; h += '<td class="rs">'+((histEdit && histEdit.p===i && histEdit.r===k) ? '<input class="hin tin" type="number" inputmode="numeric" data-hp="'+i+'" data-hr="'+k+'" value="'+(v==null?'':v)+'">' : '<button type="button" class="tv" data-hp="'+i+'" data-hr="'+k+'">'+(v==null?'–':v)+'</button>')+'</td>'; });
       h += '<td class="total">'+tot[i]+'</td></tr>';
     });
-    return h + '</tbody></table></div>';
+    return h + '</tbody></table></div></div>';
   }
   function renderRecap(){
     var done = state.history.length;
@@ -523,27 +606,39 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
         + '<button type="button" class="primary" data-a="back">'+tr('backTo',state.round)+'</button>';
       return;
     }
-    var res = result();
-    var h = '<div class="topbar"><div class="round">'+tr('roundDone',done)+'</div></div>';
-    if(res && res.winner!==null){
-      h += '<div class="panel result"><div class="big">'+tr('winner',esc(state.players[res.winner]))+'</div><div class="small">'+tr('winnerSub',res.max)+'</div></div>';
-    } else if(res){
-      h += '<div class="panel result tie"><div class="big">'+tr('tie',res.max)+'</div><div class="small">'
-        + tr('tieSub',res.top.map(function(i){ return esc(state.players[i]); }).join(' &amp; '))+'</div></div>';
-    }
-    h += scoreboardHtml();
-    if(res && res.winner!==null){
-      h += '<button type="button" class="primary" data-a="reset">'+tr('newGame')+'</button>'
-        + '<div class="row-actions"><button type="button" class="ghost" data-a="undo">'+tr('fix')+'</button></div>';
-    } else {
-      h += '<button type="button" class="primary" data-a="next">'+tr('next')+'</button>'
-        + '<div class="row-actions"><button type="button" class="ghost" data-a="undo">'+tr('fix')+'</button>'
-        + '<button type="button" class="ghost" data-a="reset">'+tr('newGame')+'</button></div>';
-    }
+    var h = '<div class="topbar"><div class="round">'+tr('roundDone',done)+'</div></div>' + scoreboardHtml();
+    h += '<button type="button" class="primary" data-a="next">'+tr('next')+'</button>'
+      + '<div class="row-actions"><button type="button" class="ghost" data-a="undo">'+tr('fix')+'</button>'
+      + '<button type="button" class="ghost" data-a="reset">'+tr('newGame')+'</button></div>';
     app.innerHTML = h;
   }
 
   /* ---------- Événements ---------- */
+  app.addEventListener('keydown',function(e){
+    var pe = e.target.closest && e.target.closest('.pedit');
+    if(e.key==='Enter' && pe){ var ok = pe.querySelector('[data-a="mok"]'); if(ok) ok.click(); }
+  });
+  app.addEventListener('scroll',function(e){
+    var el = e.target;
+    if(!el.classList || !el.classList.contains('phist') || syncing) return;
+    histScroll = el.scrollLeft; syncing = true;
+    var els = app.querySelectorAll('.phist');
+    for(var k=0;k<els.length;k++) if(els[k]!==el) els[k].scrollLeft = histScroll;
+    syncing = false;
+  }, true);
+  app.addEventListener('focusout',function(e){
+    var el = e.target;
+    if(!el.classList || !el.classList.contains('hin')) return;
+    var p = +el.dataset.hp, r = +el.dataset.hr, v = parseInt(el.value,10);
+    if(!isNaN(v) && state.history[r]) state.history[r][p] = v;
+    histEdit = null; save(); if(state.phase==='round') refreshCard(p); else render();
+  });
+  app.addEventListener('keydown',function(e){
+    if(e.key==='Enter' && e.target.classList && e.target.classList.contains('hin')) e.target.blur();
+  });
+  app.addEventListener('keydown',function(e){
+    if(e.key==='Enter' && e.target.classList && e.target.classList.contains('addname')){ var ok = app.querySelector('[data-a="addok"]'); if(ok) ok.click(); }
+  });
   app.addEventListener('input',function(e){
     var el = e.target;
     if(el.dataset && el.dataset.name !== undefined){
@@ -552,12 +647,26 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
     }
   });
   app.addEventListener('click',function(e){
+    var ps = e.target.closest('.pscore[data-score]');
+    if(ps && state.phase==='round'){
+      editIdx = +ps.dataset.score; refreshCard(editIdx);
+      var inp = app.querySelector('.pedit input'); if(inp){ inp.focus(); inp.select(); }
+      return;
+    }
     var b = e.target.closest('button');
     if(!b) return;
     var d = b.dataset;
 
     if(d.p !== undefined && state.phase==='round'){
       var i = +d.p, s = state.sel[i];
+      if(d.m !== undefined){
+        state.mini = state.mini || [];
+        state.mini[i] = !state.mini[i];
+        if(state.mini[i]) editIdx = i;
+        save(); refreshCard(i);
+        if(state.mini[i]){ var mi = app.querySelector('.pedit input'); if(mi){ mi.focus(); mi.select(); } }
+        return;
+      }
       if(d.o !== undefined){
         if(!state.out) state.out = [];
         state.out[i] = !state.out[i];
@@ -569,7 +678,13 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
       else if(d.h !== undefined) s.half = !s.half;
       else if(d.l !== undefined) s.lucky = !s.lucky;
       else if(d.z !== undefined) s.zero = !s.zero;
+      if(d.n !== undefined || d.g !== undefined || d.h !== undefined || d.l !== undefined || d.z !== undefined) s.manual = null;
       save(); refreshCard(i);
+      return;
+    }
+    if(d.hr !== undefined && d.hp !== undefined){
+      histEdit = { p: +d.hp, r: +d.hr }; if(state.phase==='round') refreshCard(+d.hp); else render();
+      var hi = app.querySelector('.hin'); if(hi){ hi.focus(); hi.select(); }
       return;
     }
     if(d.lang){ state.lang = d.lang; save(); render(); return; }
@@ -584,7 +699,16 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
         state.sel = state.players.map(emptySel);
         state.phase = 'round'; save(); render(); window.scrollTo(0,0);
         break;
+      case 'mok':
+        var mk = +d.i, mv = parseInt(b.closest('.pedit').querySelector('input').value, 10);
+        if(!isNaN(mv)){ var ms = state.sel[mk]; ms.nums = []; ms.negs = []; ms.half = false; ms.lucky = false; ms.zero = false; }
+        state.sel[mk].manual = isNaN(mv) ? null : mv; editIdx = null; save(); refreshCard(mk);
+        break;
+      case 'mauto':
+        var ak = +d.i; state.sel[ak].manual = null; editIdx = null; save(); refreshCard(ak);
+        break;
       case 'validate':
+        editIdx = null; histEdit = null;
         var active = state.players.filter(function(p,i){ return !(state.out && state.out[i]); }).length;
         if(active < 1){ flash(b,tr('needOne')); break; }
         state.history.push(state.sel.map(function(s,i){ return (state.out && state.out[i]) ? null : score(s); }));
@@ -596,6 +720,25 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
           state.phase = 'setup'; state.players = []; state.history = []; state.sel = []; state.out = []; state.round = 1; state.last = null; state.peek = false;
           save(); render(); window.scrollTo(0,0);
         }
+        break;
+      case 'addp':
+        addMode = !addMode; render();
+        if(addMode){ var an = app.querySelector('.addname'); if(an) an.focus(); }
+        break;
+      case 'addcancel':
+        addMode = false; render();
+        break;
+      case 'addok':
+        var nv = (app.querySelector('.addname') || {}).value || '';
+        var nn = nv.trim() || tr('playerN', state.players.length + 1);
+        state.players.push(nn);
+        state.sel.push(emptySel());
+        state.history.forEach(function(r){ r.push(null); });
+        if(state.out) state.out.push(false);
+        if(state.mini) state.mini.push(false);
+        state.names = state.names || []; state.names[state.players.length - 1] = nn;
+        state.count = state.players.length;
+        addMode = false; save(); render();
         break;
       case 'back': state.peek = false; state.phase = 'round'; save(); render(); break;
       case 'next':
@@ -609,6 +752,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
           state.history.pop();
           state.round = state.history.length + 1;
           state.sel = state.last || state.players.map(emptySel);
+          while(state.sel.length < state.players.length) state.sel.push(emptySel());
           state.phase = 'round'; save(); render(); window.scrollTo(0,0);
         }
         break;
@@ -625,6 +769,5 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   render();
 })();
 </script>
-<script data-goatcounter="https://flip7-seb.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
