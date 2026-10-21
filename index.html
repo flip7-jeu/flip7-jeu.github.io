@@ -224,6 +224,33 @@ td.total{font-size:26px}
 .lang{font-family:var(--disp);font-size:18px;letter-spacing:.04em;height:34px;min-width:44px;padding:0 8px;border:2px solid #2f2a86;border-radius:8px;background:#fffbea;color:#2f2a86}
 .lang.on{background:#2f2a86;color:#fff7dc}
 .f7plus{color:#fff7dc;margin-left:4px}
+.podium{display:flex;align-items:flex-end;justify-content:center;gap:8px;margin:6px 0 14px;min-height:220px}
+.pod{flex:1;max-width:120px;min-width:0;display:flex;flex-direction:column;align-items:center;text-align:center}
+.podn{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-family:var(--disp);font-size:22px;line-height:1.1;color:var(--pc);-webkit-text-stroke:1px #2f2a86;paint-order:stroke fill;opacity:0;animation:podIn .4s ease-out forwards}
+.podt{margin-bottom:4px;font-family:var(--disp);font-size:20px;color:#2f2a86;opacity:0;animation:podIn .4s ease-out forwards}
+.step{width:100%;display:flex;align-items:flex-start;justify-content:center;padding-top:6px;border:3px solid #2f2a86;border-bottom:0;border-radius:10px 10px 0 0;background:radial-gradient(circle at 50% 30%,#fffdf2,#f1e2b2);box-shadow:inset 0 0 0 3px #f5cf3a;transform-origin:bottom;transform:scaleY(0);animation:podRise .6s cubic-bezier(.2,.9,.3,1.2) forwards}
+.step span{font-family:var(--disp);font-size:44px;line-height:1;color:var(--pc);-webkit-text-stroke:1.5px #2f2a86;paint-order:stroke fill}
+.pod1 .step{height:120px;animation-delay:.9s}
+.pod1 .podn,.pod1 .podt{animation-delay:1.4s}
+.pod1 .podn{font-size:26px}
+.pod2 .step{height:84px;animation-delay:.5s}
+.pod2 .podn,.pod2 .podt{animation-delay:1s}
+.pod3 .step{height:58px;animation-delay:.1s}
+.pod3 .podn,.pod3 .podt{animation-delay:.6s}
+@keyframes podRise{to{transform:scaleY(1)}}
+@keyframes podIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.winner .wt{display:inline-block;animation:trophy 1s ease-in-out 3}
+@keyframes trophy{0%,100%{transform:scale(1) rotate(0)}30%{transform:scale(1.15) rotate(-6deg)}60%{transform:scale(1.1) rotate(5deg)}}
+.winner .wn{animation:pop .6s cubic-bezier(.2,.9,.3,1.4) both}
+@keyframes pop{from{transform:scale(.3);opacity:0}to{transform:scale(1);opacity:1}}
+.confetti{position:fixed;top:-14px;width:9px;height:14px;z-index:50;pointer-events:none;animation-name:fall;animation-timing-function:linear;animation-fill-mode:forwards}
+@keyframes fall{to{transform:translate3d(var(--dx),110vh,0) rotate(var(--rot))}}
+@media (prefers-reduced-motion: reduce){.step,.podn,.podt,.winner .wt,.winner .wn{animation:none!important;transform:none!important;opacity:1!important}}
+.winner,.tie{text-align:center;padding:18px 14px}
+.winner{border-left:12px solid var(--pc)}
+.wt{font-family:var(--disp);font-size:32px;letter-spacing:.04em;color:#2f2a86}
+.wn{font-family:var(--disp);font-size:64px;line-height:1.05;color:var(--pc);-webkit-text-stroke:1.5px #2f2a86;paint-order:stroke fill}
+.ws{font-family:var(--disp);font-size:26px;letter-spacing:.03em;color:#2f2a86}
 .hint{margin:4px 4px 12px;font-size:15px;line-height:1.4;color:var(--muted);text-align:center}
 .pname{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
 .qin{display:block;width:104px;height:64px;padding:0;font-family:var(--disp);font-size:44px;line-height:1;text-align:center;color:#2f2a86;background:#fffbea;border:3px solid #2f2a86;border-radius:10px;box-shadow:inset 0 0 0 3px #f5cf3a,inset 0 0 0 5px #fffbea,inset 0 0 0 6px #f5cf3a;-moz-appearance:textfield}
@@ -325,10 +352,10 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   }
   var LANGS=['fr','en','de','es'];
   var I18N={
-    fr:{howMany:'Combien de joueurs ?',fewer:'Moins de joueurs',more:'Plus de joueurs',range:'joueurs (2 à 12)',nameN:'Nom du joueur {0}',playerN:'Joueur {0}',start:'Commencer la partie',notPlaying:'Ne joue pas',putBack:'Remettre',totalC:'Total : {0}',total:'Total',round:'Manche {0}',board:'Tableau',abandon:'Abandon',validate:'Valider la manche',player:'Joueur',rShort:'M',scoreboard:'Tableau des scores',backTo:'Retour à la manche {0}',roundDone:'Manche {0} validée',next:'Manche suivante',fix:'Corriger la manche',newGame:'Nouvelle partie',confAbandon:'Confirmer l’abandon',confReset:'Confirmer : tout effacer',noRound:'Aucune manche validée',needOne:'Au moins un joueur doit jouer',card:'Carte {0}',target:'CIBLEZ UN JOUEUR',subTxt:'SOUSTRAYEZ {0} À VOTRE SCORE',halfTxt:'DIVISEZ VOTRE SCORE PAR DEUX',lucky:'PORTE-BONHEUR',zeroName:'LE ZÉRO',addPlayer:'+ Joueur',quickMode:'⚡ Rapide',cardsMode:'🃏 Cartes',hintRemove:'Pour retirer un joueur, appuie longuement sur son nom. « Remettre » le fait revenir avec ses points.'},
-    en:{howMany:'How many players?',fewer:'Fewer players',more:'More players',range:'players (2 to 12)',nameN:'Player {0} name',playerN:'Player {0}',start:'Start game',notPlaying:'Not playing',putBack:'Bring back',totalC:'Total: {0}',total:'Total',round:'Round {0}',board:'Scores',abandon:'Quit',validate:'Confirm round',player:'Player',rShort:'R',scoreboard:'Scoreboard',backTo:'Back to round {0}',roundDone:'Round {0} confirmed',next:'Next round',fix:'Fix round',newGame:'New game',confAbandon:'Confirm quit',confReset:'Confirm: erase all',noRound:'No round confirmed yet',needOne:'At least one player must play',card:'Card {0}',target:'TARGET A PLAYER',subTxt:'SUBTRACT {0} FROM YOUR SCORE',halfTxt:'DIVIDE YOUR SCORE BY TWO',lucky:'LUCKY CHARM',zeroName:'ZERO',addPlayer:'+ Player',quickMode:'⚡ Quick',cardsMode:'🃏 Cards',hintRemove:'To remove a player, press and hold their name. “Bring back” restores them with their points.'},
-    de:{howMany:'Wie viele Spieler?',fewer:'Weniger Spieler',more:'Mehr Spieler',range:'Spieler (2 bis 12)',nameN:'Name von Spieler {0}',playerN:'Spieler {0}',start:'Spiel starten',notPlaying:'Spielt nicht',putBack:'Zurückholen',totalC:'Gesamt: {0}',total:'Gesamt',round:'Runde {0}',board:'Punkte',abandon:'Aufgeben',validate:'Runde bestätigen',player:'Spieler',rShort:'R',scoreboard:'Punktetabelle',backTo:'Zurück zu Runde {0}',roundDone:'Runde {0} bestätigt',next:'Nächste Runde',fix:'Runde korrigieren',newGame:'Neues Spiel',confAbandon:'Aufgeben bestätigen',confReset:'Bestätigen: alles löschen',noRound:'Noch keine Runde bestätigt',needOne:'Mindestens ein Spieler muss spielen',card:'Karte {0}',target:'WÄHLE EINEN SPIELER',subTxt:'ZIEHE {0} VON DEINEN PUNKTEN AB',halfTxt:'TEILE DEINE PUNKTE DURCH ZWEI',lucky:'GLÜCKSBRINGER',zeroName:'NULL',addPlayer:'+ Spieler',quickMode:'⚡ Schnell',cardsMode:'🃏 Karten',hintRemove:'Um einen Spieler zu entfernen, lange auf seinen Namen drücken. „Zurückholen“ holt ihn mit seinen Punkten zurück.'},
-    es:{howMany:'¿Cuántos jugadores?',fewer:'Menos jugadores',more:'Más jugadores',range:'jugadores (2 a 12)',nameN:'Nombre del jugador {0}',playerN:'Jugador {0}',start:'Empezar la partida',notPlaying:'No juega',putBack:'Reincorporar',totalC:'Total: {0}',total:'Total',round:'Ronda {0}',board:'Marcador',abandon:'Abandonar',validate:'Confirmar ronda',player:'Jugador',rShort:'R',scoreboard:'Tabla de puntuación',backTo:'Volver a la ronda {0}',roundDone:'Ronda {0} confirmada',next:'Siguiente ronda',fix:'Corregir ronda',newGame:'Nueva partida',confAbandon:'Confirmar abandono',confReset:'Confirmar: borrar todo',noRound:'Ninguna ronda confirmada',needOne:'Al menos un jugador debe jugar',card:'Carta {0}',target:'ELIGE UN JUGADOR',subTxt:'RESTA {0} A TU PUNTUACIÓN',halfTxt:'DIVIDE TU PUNTUACIÓN ENTRE DOS',lucky:'AMULETO',zeroName:'CERO',addPlayer:'+ Jugador',quickMode:'⚡ Rápido',cardsMode:'🃏 Cartas',hintRemove:'Para quitar a un jugador, mantén pulsado su nombre. « Reincorporar » lo devuelve con sus puntos.'}
+    fr:{howMany:'Combien de joueurs ?',fewer:'Moins de joueurs',more:'Plus de joueurs',range:'joueurs (2 à 12)',nameN:'Nom du joueur {0}',playerN:'Joueur {0}',start:'Commencer la partie',notPlaying:'Ne joue pas',putBack:'Remettre',totalC:'Total : {0}',total:'Total',round:'Manche {0}',board:'Tableau',abandon:'Abandon',validate:'Valider la manche',player:'Joueur',rShort:'M',scoreboard:'Tableau des scores',backTo:'Retour à la manche {0}',roundDone:'Manche {0} validée',next:'Manche suivante',fix:'Corriger la manche',newGame:'Nouvelle partie',confAbandon:'Confirmer l’abandon',confReset:'Confirmer : tout effacer',noRound:'Aucune manche validée',needOne:'Au moins un joueur doit jouer',card:'Carte {0}',target:'CIBLEZ UN JOUEUR',subTxt:'SOUSTRAYEZ {0} À VOTRE SCORE',halfTxt:'DIVISEZ VOTRE SCORE PAR DEUX',lucky:'PORTE-BONHEUR',zeroName:'LE ZÉRO',addPlayer:'+ Joueur',winner:'Vainqueur',pts:'points',tie:'Égalité !',tieMsg:'Égalité en tête au-delà de 200 points : manche supplémentaire !',quickMode:'⚡ Rapide',cardsMode:'🃏 Cartes',hintRemove:'Pour retirer un joueur, appuie longuement sur son nom. « Remettre » le fait revenir avec ses points.'},
+    en:{howMany:'How many players?',fewer:'Fewer players',more:'More players',range:'players (2 to 12)',nameN:'Player {0} name',playerN:'Player {0}',start:'Start game',notPlaying:'Not playing',putBack:'Bring back',totalC:'Total: {0}',total:'Total',round:'Round {0}',board:'Scores',abandon:'Quit',validate:'Confirm round',player:'Player',rShort:'R',scoreboard:'Scoreboard',backTo:'Back to round {0}',roundDone:'Round {0} confirmed',next:'Next round',fix:'Fix round',newGame:'New game',confAbandon:'Confirm quit',confReset:'Confirm: erase all',noRound:'No round confirmed yet',needOne:'At least one player must play',card:'Card {0}',target:'TARGET A PLAYER',subTxt:'SUBTRACT {0} FROM YOUR SCORE',halfTxt:'DIVIDE YOUR SCORE BY TWO',lucky:'LUCKY CHARM',zeroName:'ZERO',addPlayer:'+ Player',winner:'Winner',pts:'points',tie:'Tie!',tieMsg:'Tied for the lead above 200 points: extra round!',quickMode:'⚡ Quick',cardsMode:'🃏 Cards',hintRemove:'To remove a player, press and hold their name. “Bring back” restores them with their points.'},
+    de:{howMany:'Wie viele Spieler?',fewer:'Weniger Spieler',more:'Mehr Spieler',range:'Spieler (2 bis 12)',nameN:'Name von Spieler {0}',playerN:'Spieler {0}',start:'Spiel starten',notPlaying:'Spielt nicht',putBack:'Zurückholen',totalC:'Gesamt: {0}',total:'Gesamt',round:'Runde {0}',board:'Punkte',abandon:'Aufgeben',validate:'Runde bestätigen',player:'Spieler',rShort:'R',scoreboard:'Punktetabelle',backTo:'Zurück zu Runde {0}',roundDone:'Runde {0} bestätigt',next:'Nächste Runde',fix:'Runde korrigieren',newGame:'Neues Spiel',confAbandon:'Aufgeben bestätigen',confReset:'Bestätigen: alles löschen',noRound:'Noch keine Runde bestätigt',needOne:'Mindestens ein Spieler muss spielen',card:'Karte {0}',target:'WÄHLE EINEN SPIELER',subTxt:'ZIEHE {0} VON DEINEN PUNKTEN AB',halfTxt:'TEILE DEINE PUNKTE DURCH ZWEI',lucky:'GLÜCKSBRINGER',zeroName:'NULL',addPlayer:'+ Spieler',winner:'Gewinner',pts:'Punkte',tie:'Gleichstand!',tieMsg:'Gleichstand an der Spitze über 200 Punkten: Extrarunde!',quickMode:'⚡ Schnell',cardsMode:'🃏 Karten',hintRemove:'Um einen Spieler zu entfernen, lange auf seinen Namen drücken. „Zurückholen“ holt ihn mit seinen Punkten zurück.'},
+    es:{howMany:'¿Cuántos jugadores?',fewer:'Menos jugadores',more:'Más jugadores',range:'jugadores (2 a 12)',nameN:'Nombre del jugador {0}',playerN:'Jugador {0}',start:'Empezar la partida',notPlaying:'No juega',putBack:'Reincorporar',totalC:'Total: {0}',total:'Total',round:'Ronda {0}',board:'Marcador',abandon:'Abandonar',validate:'Confirmar ronda',player:'Jugador',rShort:'R',scoreboard:'Tabla de puntuación',backTo:'Volver a la ronda {0}',roundDone:'Ronda {0} confirmada',next:'Siguiente ronda',fix:'Corregir ronda',newGame:'Nueva partida',confAbandon:'Confirmar abandono',confReset:'Confirmar: borrar todo',noRound:'Ninguna ronda confirmada',needOne:'Al menos un jugador debe jugar',card:'Carta {0}',target:'ELIGE UN JUGADOR',subTxt:'RESTA {0} A TU PUNTUACIÓN',halfTxt:'DIVIDE TU PUNTUACIÓN ENTRE DOS',lucky:'AMULETO',zeroName:'CERO',addPlayer:'+ Jugador',winner:'Ganador',pts:'puntos',tie:'¡Empate!',tieMsg:'Empate en cabeza por encima de 200 puntos: ¡ronda extra!',quickMode:'⚡ Rápido',cardsMode:'🃏 Cartas',hintRemove:'Para quitar a un jugador, mantén pulsado su nombre. « Reincorporar » lo devuelve con sus puntos.'}
   };
   var CARDN={
     fr:['UN','DEUX','TROIS','QUATRE','CINQ','SIX','SEPT','HUIT','NEUF','DIX','ONZE','DOUZE','TREIZE'],
@@ -378,6 +405,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
     if(state.phase==='setup') app.insertAdjacentHTML('afterbegin', langBar());
     histScroll = 1e6; syncHist();
     app.classList.toggle('quickmode', !!state.quick);
+    if(celebrate){ celebrate = false; setTimeout(confetti, 60); }
   }
 
   /* ---------- Page 1 : joueurs ---------- */
@@ -539,6 +567,47 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
     for(var k=0;k<els.length;k++) els[k].scrollLeft = histScroll;
     if(els.length) histScroll = els[0].scrollLeft;
   }
+  var TARGET = 200, celebrate = false;
+  function podiumHtml(){
+    var tot = totals();
+    var idx = state.players.map(function(p,i){ return i; }).filter(function(i){ return !(state.out && state.out[i]); }).sort(function(a,b){ return tot[b] - tot[a]; }).slice(0,3);
+    var h = '<div class="podium">';
+    [1,0,2].forEach(function(r){
+      var i = idx[r]; if(i === undefined) return;
+      h += '<div class="pod pod'+(r+1)+'" style="--pc:'+pcol(i)+'"><div class="podn">'+(r===0 ? '👑 ' : '')+esc(state.players[i])+'</div><div class="podt">'+tot[i]+'</div><div class="step"><span>'+(r+1)+'</span></div></div>';
+    });
+    return h + '</div>';
+  }
+  function confetti(){
+    try{ if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return; }catch(e){}
+    for(var k=0;k<90;k++){
+      var c = document.createElement('span');
+      c.className = 'confetti';
+      c.style.left = (Math.random()*100)+'vw';
+      c.style.background = PCOL[k % PCOL.length];
+      c.style.setProperty('--dx', ((Math.random()-.5)*160)+'px');
+      c.style.setProperty('--rot', (Math.random()*720-360)+'deg');
+      c.style.animationDuration = (2.2+Math.random()*1.8)+'s';
+      c.style.animationDelay = (Math.random()*.8)+'s';
+      if(k % 3 === 0) c.style.borderRadius = '50%';
+      document.body.appendChild(c);
+      setTimeout((function(el){ return function(){ if(el.parentNode) el.parentNode.removeChild(el); }; })(c), 5200);
+    }
+  }
+  function checkEnd(){
+    var tot = totals(), best = -Infinity, who = [];
+    state.players.forEach(function(p,i){
+      if(state.out && state.out[i]) return;
+      if(tot[i] > best){ best = tot[i]; who = [i]; } else if(tot[i] === best) who.push(i);
+    });
+    state.winner = null; state.tie = false;
+    if(best >= TARGET){ if(who.length === 1) state.winner = who[0]; else state.tie = true; }
+  }
+  function endBanner(){
+    if(state.winner != null) return '<div class="panel winner" style="--pc:'+pcol(state.winner)+'"><div class="wt">🏆 '+tr('winner')+'</div><div class="wn">'+esc(state.players[state.winner])+'</div><div class="ws">'+totals()[state.winner]+' '+tr('pts')+'</div></div>' + podiumHtml();
+    if(state.tie) return '<div class="panel tie"><div class="wt">'+tr('tie')+'</div><div class="ws">'+tr('tieMsg')+'</div></div>';
+    return '';
+  }
   function isQuick(i){ return !!state.quick && !(state.cardsFor && state.cardsFor[i]); }
   function pcol(i){ return PCOL[i % PCOL.length]; }
   function zeroCard(){
@@ -617,8 +686,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
         + '<button type="button" class="primary" data-a="back">'+tr('backTo',state.round)+'</button>';
       return;
     }
-    var h = '<div class="topbar"><div class="round">'+tr('roundDone',done)+'</div></div>' + scoreboardHtml();
-    h += '<button type="button" class="primary" data-a="next">'+tr('next')+'</button>'
+    var h = '<div class="topbar"><div class="round">'+tr('roundDone',done)+'</div></div>' + endBanner() + scoreboardHtml();
+    h += (state.winner != null ? '' : '<button type="button" class="primary" data-a="next">'+tr('next')+'</button>')
       + '<div class="row-actions"><button type="button" class="ghost" data-a="undo">'+tr('fix')+'</button>'
       + '<button type="button" class="ghost" data-a="reset">'+tr('newGame')+'</button></div>';
     app.innerHTML = h;
@@ -642,7 +711,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
     if(!el.classList || !el.classList.contains('hin')) return;
     var p = +el.dataset.hp, r = +el.dataset.hr, v = parseInt(el.value,10);
     if(!isNaN(v) && state.history[r]) state.history[r][p] = v;
-    histEdit = null; save(); if(state.phase==='round') refreshCard(p); else render();
+    histEdit = null; if(state.phase!=='round') checkEnd(); save(); if(state.phase==='round') refreshCard(p); else render();
   });
   app.addEventListener('keydown',function(e){
     if(e.key==='Enter' && e.target.classList && e.target.classList.contains('hin')) e.target.blur();
@@ -746,7 +815,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
       case 'start':
         state.players = [];
         for(var k=0;k<state.count;k++) state.players.push((state.names[k]||'').trim() || tr('playerN',k+1));
-        state.round = 1; state.history = [];
+        state.round = 1; state.history = []; state.winner = null; state.tie = false;
         state.out = state.players.map(function(){ return false; });
         state.sel = state.players.map(emptySel);
         state.phase = 'round'; save(); render(); window.scrollTo(0,0);
@@ -764,12 +833,13 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
         var active = state.players.filter(function(p,i){ return !(state.out && state.out[i]); }).length;
         if(active < 1){ flash(b,tr('needOne')); break; }
         state.history.push(state.sel.map(function(s,i){ return (state.out && state.out[i]) ? null : score(s); }));
+        checkEnd(); celebrate = state.winner != null;
         state.last = state.sel;
         state.phase = 'recap'; save(); render(); window.scrollTo(0,0);
         break;
       case 'abandon':
         if(confirmNow(b,'abandon',tr('confAbandon'))){
-          state.phase = 'setup'; state.players = []; state.history = []; state.sel = []; state.out = []; state.round = 1; state.last = null; state.peek = false;
+          state.winner = null; state.tie = false; state.phase = 'setup'; state.players = []; state.history = []; state.sel = []; state.out = []; state.round = 1; state.last = null; state.peek = false;
           save(); render(); window.scrollTo(0,0);
         }
         break;
@@ -804,6 +874,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
         state.phase = 'round'; save(); render(); window.scrollTo(0,0);
         break;
       case 'undo':
+        state.winner = null; state.tie = false;
         if(state.history.length){
           state.history.pop();
           state.round = state.history.length + 1;
