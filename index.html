@@ -224,6 +224,14 @@ td.total{font-size:26px}
 .lang{font-family:var(--disp);font-size:18px;letter-spacing:.04em;height:34px;min-width:44px;padding:0 8px;border:2px solid #2f2a86;border-radius:8px;background:#fffbea;color:#2f2a86}
 .lang.on{background:#2f2a86;color:#fff7dc}
 .f7plus{color:#fff7dc;margin-left:4px}
+.hint{margin:4px 4px 12px;font-size:15px;line-height:1.4;color:var(--muted);text-align:center}
+.pname{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+.qin{display:block;width:104px;height:64px;padding:0;font-family:var(--disp);font-size:44px;line-height:1;text-align:center;color:#2f2a86;background:#fffbea;border:3px solid #2f2a86;border-radius:10px;box-shadow:inset 0 0 0 3px #f5cf3a,inset 0 0 0 5px #fffbea,inset 0 0 0 6px #f5cf3a;-moz-appearance:textfield}
+.qin::-webkit-inner-spin-button,.qin::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+.qin:focus{outline:3px solid #f7941d;outline-offset:2px}
+.quickmode .minib{display:none}
+.quickmode .minib.cardsb{display:block;font-size:20px}
+.topbar .ghost.on{background:#2f2a86;color:#fff7dc}
 .addp{display:flex;gap:8px;align-items:center}
 .addp input{flex:1;min-width:0;height:44px;padding:0 10px;font-family:var(--disp);font-size:24px;border:3px solid #2f2a86;border-radius:10px;background:#fffbea;color:#2f2a86}
 .addp .ghost{flex:none;height:44px;padding:0 14px}
@@ -317,10 +325,10 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   }
   var LANGS=['fr','en','de','es'];
   var I18N={
-    fr:{howMany:'Combien de joueurs ?',fewer:'Moins de joueurs',more:'Plus de joueurs',range:'joueurs (2 à 12)',nameN:'Nom du joueur {0}',playerN:'Joueur {0}',start:'Commencer la partie',notPlaying:'Ne joue pas',putBack:'Remettre',totalC:'Total : {0}',total:'Total',round:'Manche {0}',board:'Tableau',abandon:'Abandon',validate:'Valider la manche',player:'Joueur',rShort:'M',scoreboard:'Tableau des scores',backTo:'Retour à la manche {0}',roundDone:'Manche {0} validée',next:'Manche suivante',fix:'Corriger la manche',newGame:'Nouvelle partie',confAbandon:'Confirmer l’abandon',confReset:'Confirmer : tout effacer',noRound:'Aucune manche validée',needOne:'Au moins un joueur doit jouer',card:'Carte {0}',target:'CIBLEZ UN JOUEUR',subTxt:'SOUSTRAYEZ {0} À VOTRE SCORE',halfTxt:'DIVISEZ VOTRE SCORE PAR DEUX',lucky:'PORTE-BONHEUR',zeroName:'LE ZÉRO',addPlayer:'+ Joueur'},
-    en:{howMany:'How many players?',fewer:'Fewer players',more:'More players',range:'players (2 to 12)',nameN:'Player {0} name',playerN:'Player {0}',start:'Start game',notPlaying:'Not playing',putBack:'Bring back',totalC:'Total: {0}',total:'Total',round:'Round {0}',board:'Scores',abandon:'Quit',validate:'Confirm round',player:'Player',rShort:'R',scoreboard:'Scoreboard',backTo:'Back to round {0}',roundDone:'Round {0} confirmed',next:'Next round',fix:'Fix round',newGame:'New game',confAbandon:'Confirm quit',confReset:'Confirm: erase all',noRound:'No round confirmed yet',needOne:'At least one player must play',card:'Card {0}',target:'TARGET A PLAYER',subTxt:'SUBTRACT {0} FROM YOUR SCORE',halfTxt:'DIVIDE YOUR SCORE BY TWO',lucky:'LUCKY CHARM',zeroName:'ZERO',addPlayer:'+ Player'},
-    de:{howMany:'Wie viele Spieler?',fewer:'Weniger Spieler',more:'Mehr Spieler',range:'Spieler (2 bis 12)',nameN:'Name von Spieler {0}',playerN:'Spieler {0}',start:'Spiel starten',notPlaying:'Spielt nicht',putBack:'Zurückholen',totalC:'Gesamt: {0}',total:'Gesamt',round:'Runde {0}',board:'Punkte',abandon:'Aufgeben',validate:'Runde bestätigen',player:'Spieler',rShort:'R',scoreboard:'Punktetabelle',backTo:'Zurück zu Runde {0}',roundDone:'Runde {0} bestätigt',next:'Nächste Runde',fix:'Runde korrigieren',newGame:'Neues Spiel',confAbandon:'Aufgeben bestätigen',confReset:'Bestätigen: alles löschen',noRound:'Noch keine Runde bestätigt',needOne:'Mindestens ein Spieler muss spielen',card:'Karte {0}',target:'WÄHLE EINEN SPIELER',subTxt:'ZIEHE {0} VON DEINEN PUNKTEN AB',halfTxt:'TEILE DEINE PUNKTE DURCH ZWEI',lucky:'GLÜCKSBRINGER',zeroName:'NULL',addPlayer:'+ Spieler'},
-    es:{howMany:'¿Cuántos jugadores?',fewer:'Menos jugadores',more:'Más jugadores',range:'jugadores (2 a 12)',nameN:'Nombre del jugador {0}',playerN:'Jugador {0}',start:'Empezar la partida',notPlaying:'No juega',putBack:'Reincorporar',totalC:'Total: {0}',total:'Total',round:'Ronda {0}',board:'Marcador',abandon:'Abandonar',validate:'Confirmar ronda',player:'Jugador',rShort:'R',scoreboard:'Tabla de puntuación',backTo:'Volver a la ronda {0}',roundDone:'Ronda {0} confirmada',next:'Siguiente ronda',fix:'Corregir ronda',newGame:'Nueva partida',confAbandon:'Confirmar abandono',confReset:'Confirmar: borrar todo',noRound:'Ninguna ronda confirmada',needOne:'Al menos un jugador debe jugar',card:'Carta {0}',target:'ELIGE UN JUGADOR',subTxt:'RESTA {0} A TU PUNTUACIÓN',halfTxt:'DIVIDE TU PUNTUACIÓN ENTRE DOS',lucky:'AMULETO',zeroName:'CERO',addPlayer:'+ Jugador'}
+    fr:{howMany:'Combien de joueurs ?',fewer:'Moins de joueurs',more:'Plus de joueurs',range:'joueurs (2 à 12)',nameN:'Nom du joueur {0}',playerN:'Joueur {0}',start:'Commencer la partie',notPlaying:'Ne joue pas',putBack:'Remettre',totalC:'Total : {0}',total:'Total',round:'Manche {0}',board:'Tableau',abandon:'Abandon',validate:'Valider la manche',player:'Joueur',rShort:'M',scoreboard:'Tableau des scores',backTo:'Retour à la manche {0}',roundDone:'Manche {0} validée',next:'Manche suivante',fix:'Corriger la manche',newGame:'Nouvelle partie',confAbandon:'Confirmer l’abandon',confReset:'Confirmer : tout effacer',noRound:'Aucune manche validée',needOne:'Au moins un joueur doit jouer',card:'Carte {0}',target:'CIBLEZ UN JOUEUR',subTxt:'SOUSTRAYEZ {0} À VOTRE SCORE',halfTxt:'DIVISEZ VOTRE SCORE PAR DEUX',lucky:'PORTE-BONHEUR',zeroName:'LE ZÉRO',addPlayer:'+ Joueur',quickMode:'⚡ Rapide',cardsMode:'🃏 Cartes',hintRemove:'Pour retirer un joueur, appuie longuement sur son nom. « Remettre » le fait revenir avec ses points.'},
+    en:{howMany:'How many players?',fewer:'Fewer players',more:'More players',range:'players (2 to 12)',nameN:'Player {0} name',playerN:'Player {0}',start:'Start game',notPlaying:'Not playing',putBack:'Bring back',totalC:'Total: {0}',total:'Total',round:'Round {0}',board:'Scores',abandon:'Quit',validate:'Confirm round',player:'Player',rShort:'R',scoreboard:'Scoreboard',backTo:'Back to round {0}',roundDone:'Round {0} confirmed',next:'Next round',fix:'Fix round',newGame:'New game',confAbandon:'Confirm quit',confReset:'Confirm: erase all',noRound:'No round confirmed yet',needOne:'At least one player must play',card:'Card {0}',target:'TARGET A PLAYER',subTxt:'SUBTRACT {0} FROM YOUR SCORE',halfTxt:'DIVIDE YOUR SCORE BY TWO',lucky:'LUCKY CHARM',zeroName:'ZERO',addPlayer:'+ Player',quickMode:'⚡ Quick',cardsMode:'🃏 Cards',hintRemove:'To remove a player, press and hold their name. “Bring back” restores them with their points.'},
+    de:{howMany:'Wie viele Spieler?',fewer:'Weniger Spieler',more:'Mehr Spieler',range:'Spieler (2 bis 12)',nameN:'Name von Spieler {0}',playerN:'Spieler {0}',start:'Spiel starten',notPlaying:'Spielt nicht',putBack:'Zurückholen',totalC:'Gesamt: {0}',total:'Gesamt',round:'Runde {0}',board:'Punkte',abandon:'Aufgeben',validate:'Runde bestätigen',player:'Spieler',rShort:'R',scoreboard:'Punktetabelle',backTo:'Zurück zu Runde {0}',roundDone:'Runde {0} bestätigt',next:'Nächste Runde',fix:'Runde korrigieren',newGame:'Neues Spiel',confAbandon:'Aufgeben bestätigen',confReset:'Bestätigen: alles löschen',noRound:'Noch keine Runde bestätigt',needOne:'Mindestens ein Spieler muss spielen',card:'Karte {0}',target:'WÄHLE EINEN SPIELER',subTxt:'ZIEHE {0} VON DEINEN PUNKTEN AB',halfTxt:'TEILE DEINE PUNKTE DURCH ZWEI',lucky:'GLÜCKSBRINGER',zeroName:'NULL',addPlayer:'+ Spieler',quickMode:'⚡ Schnell',cardsMode:'🃏 Karten',hintRemove:'Um einen Spieler zu entfernen, lange auf seinen Namen drücken. „Zurückholen“ holt ihn mit seinen Punkten zurück.'},
+    es:{howMany:'¿Cuántos jugadores?',fewer:'Menos jugadores',more:'Más jugadores',range:'jugadores (2 a 12)',nameN:'Nombre del jugador {0}',playerN:'Jugador {0}',start:'Empezar la partida',notPlaying:'No juega',putBack:'Reincorporar',totalC:'Total: {0}',total:'Total',round:'Ronda {0}',board:'Marcador',abandon:'Abandonar',validate:'Confirmar ronda',player:'Jugador',rShort:'R',scoreboard:'Tabla de puntuación',backTo:'Volver a la ronda {0}',roundDone:'Ronda {0} confirmada',next:'Siguiente ronda',fix:'Corregir ronda',newGame:'Nueva partida',confAbandon:'Confirmar abandono',confReset:'Confirmar: borrar todo',noRound:'Ninguna ronda confirmada',needOne:'Al menos un jugador debe jugar',card:'Carta {0}',target:'ELIGE UN JUGADOR',subTxt:'RESTA {0} A TU PUNTUACIÓN',halfTxt:'DIVIDE TU PUNTUACIÓN ENTRE DOS',lucky:'AMULETO',zeroName:'CERO',addPlayer:'+ Jugador',quickMode:'⚡ Rápido',cardsMode:'🃏 Cartas',hintRemove:'Para quitar a un jugador, mantén pulsado su nombre. « Reincorporar » lo devuelve con sus puntos.'}
   };
   var CARDN={
     fr:['UN','DEUX','TROIS','QUATRE','CINQ','SIX','SEPT','HUIT','NEUF','DIX','ONZE','DOUZE','TREIZE'],
@@ -369,6 +377,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
     document.documentElement.lang = lang();
     if(state.phase==='setup') app.insertAdjacentHTML('afterbegin', langBar());
     histScroll = 1e6; syncHist();
+    app.classList.toggle('quickmode', !!state.quick);
   }
 
   /* ---------- Page 1 : joueurs ---------- */
@@ -530,6 +539,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
     for(var k=0;k<els.length;k++) els[k].scrollLeft = histScroll;
     if(els.length) histScroll = els[0].scrollLeft;
   }
+  function isQuick(i){ return !!state.quick && !(state.cardsFor && state.cardsFor[i]); }
   function pcol(i){ return PCOL[i % PCOL.length]; }
   function zeroCard(){
     var id='z'+(uid++), sid='zs'+(uid++);
@@ -553,8 +563,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
     }
     var h = '<section class="panel" data-p="'+i+'" style="--pc:'+pcol(i)+'"><div class="phead"><div style="min-width:0">'
       + '<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap"><div class="pname">'+esc(p)+'</div><div class="ptotal" style="font-family:var(--disp);font-size:28px;line-height:1;letter-spacing:.04em;color:var(--ink)">'+tr('totalC',t)+'</div></div>'+histLine(i)+'</div>'
-      + (isFlip7(s) ? '<div class="f7badge">Flip 7 <span class="f7plus">+15</span></div>' : '') + '<div class="pright">'+(editIdx===i ? '<div class="pedit"><input type="number" inputmode="numeric" value="'+sc+'" aria-label="Score"><div style="display:flex;gap:4px"><button type="button" class="ghost" data-a="mok" data-i="'+i+'">OK</button><button type="button" class="ghost" data-a="mauto" data-i="'+i+'">Auto</button></div></div>' : '<div class="pscore'+(sc<0?' neg':'')+(s.manual!=null?' manual':'')+'" data-score="'+i+'">'+sc+'</div>')+'<button type="button" class="minib" data-p="'+i+'" data-m="1" aria-label="Cartes">'+((state.mini && state.mini[i]) ? '▾' : '▴')+'</button></div></div>';
-    h += '<div class="grid nums"'+((state.mini && state.mini[i]) ? ' hidden' : '')+'>';
+      + (isFlip7(s) ? '<div class="f7badge">Flip 7 <span class="f7plus">+15</span></div>' : '') + '<div class="pright">'+(isQuick(i) ? '<input class="qin" type="number" data-q="'+i+'" enterkeyhint="next" placeholder="0" aria-label="Score" value="'+(s.manual!=null ? s.manual : (score(s) || ''))+'">' : editIdx===i ? '<div class="pedit"><input type="number" inputmode="numeric" value="'+sc+'" aria-label="Score"><div style="display:flex;gap:4px"><button type="button" class="ghost" data-a="mok" data-i="'+i+'">OK</button><button type="button" class="ghost" data-a="mauto" data-i="'+i+'">Auto</button></div></div>' : '<div class="pscore'+(sc<0?' neg':'')+(s.manual!=null?' manual':'')+'" data-score="'+i+'">'+sc+'</div>')+(state.quick ? '<button type="button" class="minib cardsb" data-p="'+i+'" data-c="1" aria-label="Mode">'+(isQuick(i) ? '🃏' : '⚡')+'</button>' : '<button type="button" class="minib" data-p="'+i+'" data-m="1" aria-label="Cartes">'+((state.mini && state.mini[i]) ? '▾' : '▴')+'</button>')+'</div></div>';
+    h += '<div class="grid nums"'+((isQuick(i) || (state.mini && state.mini[i])) ? ' hidden' : '')+'>';
     h += '<button type="button" class="card'+(s.zero?' on':'')+'" data-p="'+i+'" data-z="1" aria-label="'+tr('card','0')+'">'+zeroCard()+'</button>';
     NUMS.forEach(function(n){
       h += '<button type="button" class="card'+(s.nums.indexOf(n)>=0?' on':'')+'" data-p="'+i+'" data-n="'+n+'" aria-label="'+tr('card',n)+'">'+numberCard(n)+'</button>';
@@ -568,10 +578,11 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   }
   function renderRound(){
     var h = '<div class="topbar"><div class="round">'+tr('round',state.round)+'</div>'
-      + '<div style="display:flex;gap:8px"><button type="button" class="ghost" data-a="scoreboard">'+tr('board')+'</button><button type="button" class="ghost" data-a="addp">'+tr('addPlayer')+'</button>'
+      + '<div style="display:flex;gap:8px"><button type="button" class="ghost" data-a="scoreboard">'+tr('board')+'</button><button type="button" class="ghost" data-a="addp">'+tr('addPlayer')+'</button><button type="button" class="ghost'+(state.quick?' on':'')+'" data-a="quick">'+tr(state.quick?'cardsMode':'quickMode')+'</button>'
       + '<button type="button" class="ghost" data-a="abandon">'+tr('abandon')+'</button></div>'+chipsHtml()+'</div>';
     if(addMode) h += '<div class="panel addp"><input class="addname" type="text" autocomplete="off" placeholder="'+tr('playerN', state.players.length + 1)+'"><button type="button" class="ghost" data-a="addok">OK</button><button type="button" class="ghost" data-a="addcancel">×</button></div>';
     for(var i=0;i<state.players.length;i++) h += playerCard(i);
+    h += '<p class="hint">ⓘ '+tr('hintRemove')+'</p>';
     h += '<div class="sticky"><button type="button" class="primary" data-a="validate">'+tr('validate')+'</button></div>';
     app.innerHTML = h;
   }
@@ -637,9 +648,42 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
     if(e.key==='Enter' && e.target.classList && e.target.classList.contains('hin')) e.target.blur();
   });
   app.addEventListener('keydown',function(e){
+    if(e.key==='Enter' && e.target.classList && e.target.classList.contains('qin')){
+      e.preventDefault();
+      var all = Array.prototype.slice.call(app.querySelectorAll('.qin')), k = all.indexOf(e.target);
+      if(k >= 0 && k < all.length - 1){ all[k+1].focus(); all[k+1].select(); } else e.target.blur();
+    }
+  });
+  app.addEventListener('keydown',function(e){
     if(e.key==='Enter' && e.target.classList && e.target.classList.contains('addname')){ var ok = app.querySelector('[data-a="addok"]'); if(ok) ok.click(); }
   });
+  var lpTimer = null;
+  app.addEventListener('pointerdown', function(e){
+    var pn = e.target.closest && e.target.closest('.pname');
+    if(!pn || state.phase !== 'round') return;
+    var sec = pn.closest('section[data-p]'); if(!sec) return;
+    var pi = +sec.dataset.p;
+    if(state.out && state.out[pi]) return;
+    clearTimeout(lpTimer);
+    lpTimer = setTimeout(function(){
+      state.out = state.out || []; state.out[pi] = true;
+      if(navigator.vibrate){ try{ navigator.vibrate(40); }catch(err){} }
+      save(); refreshCard(pi); updateChips();
+    }, 700);
+  });
+  ['pointerup','pointercancel'].forEach(function(t){ app.addEventListener(t, function(){ clearTimeout(lpTimer); }); });
+  window.addEventListener('scroll', function(){ clearTimeout(lpTimer); }, true);
   app.addEventListener('input',function(e){
+    var q = e.target;
+    if(q.classList && q.classList.contains('qin')){
+      var qi = +q.dataset.q, qs = state.sel[qi], qv = parseInt(q.value, 10);
+      qs.manual = isNaN(qv) ? null : qv;
+      if(!isNaN(qv)){ qs.nums = []; qs.negs = []; qs.half = false; qs.lucky = false; qs.zero = false; }
+      save(); updateChips();
+      var qsec = q.closest('section'), pt = qsec && qsec.querySelector('.ptotal');
+      if(pt) pt.textContent = tr('totalC', totals()[qi] + score(qs));
+      return;
+    }
     var el = e.target;
     if(el.dataset && el.dataset.name !== undefined){
       state.names[+el.dataset.name] = el.value;
@@ -659,6 +703,14 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
     if(d.p !== undefined && state.phase==='round'){
       var i = +d.p, s = state.sel[i];
+      if(d.c !== undefined){
+        state.cardsFor = state.cardsFor || [];
+        state.cardsFor[i] = !state.cardsFor[i];
+        if(state.cardsFor[i]) s.manual = null;
+        save(); refreshCard(i);
+        if(!state.cardsFor[i]){ var qe = app.querySelector('section[data-p="'+i+'"] .qin'); if(qe){ qe.focus(); qe.select(); } }
+        return;
+      }
       if(d.m !== undefined){
         state.mini = state.mini || [];
         state.mini[i] = !state.mini[i];
@@ -720,6 +772,10 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
           state.phase = 'setup'; state.players = []; state.history = []; state.sel = []; state.out = []; state.round = 1; state.last = null; state.peek = false;
           save(); render(); window.scrollTo(0,0);
         }
+        break;
+      case 'quick':
+        state.quick = !state.quick; state.cardsFor = []; editIdx = null; save(); render();
+        if(state.quick){ var qf = app.querySelector('.qin'); if(qf) qf.focus(); }
         break;
       case 'addp':
         addMode = !addMode; render();
