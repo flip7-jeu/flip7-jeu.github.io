@@ -224,6 +224,20 @@ td.total{font-size:26px}
 .lang{font-family:var(--disp);font-size:18px;letter-spacing:.04em;height:34px;min-width:44px;padding:0 8px;border:2px solid #2f2a86;border-radius:8px;background:#fffbea;color:#2f2a86}
 .lang.on{background:#2f2a86;color:#fff7dc}
 .f7plus{color:#fff7dc;margin-left:4px}
+.hof{margin-top:12px}
+.gline{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:6px 2px;border-bottom:1px solid #d9c78a;font-family:var(--disp);font-size:20px;letter-spacing:.03em;color:#2f2a86}
+.gline b{flex:1;min-width:0;font-weight:400;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pname.isdealer{background:#ffe14d;border-radius:7px;padding:3px 8px 0;box-shadow:0 0 0 2px #2f2a86}
+.tchip.isdealer{background:#ffe14d}
+.pbtns{display:flex;gap:6px;justify-content:center}
+.bustb{height:38px;padding:0 8px;border:2px solid #2f2a86;border-radius:8px;background:#fffbea;color:#e3101c;font-family:var(--disp);font-size:18px;letter-spacing:.04em}
+.bustb.on{background:#e3101c;color:#fff}
+.pscore.bust,.qin.bust{color:#e3101c;text-decoration:line-through}
+.dealer{font-family:var(--disp);font-size:16px;letter-spacing:.04em;line-height:1;color:#fff7dc;background:#2f2a86;border-radius:6px;padding:4px 6px 2px}
+.tfield{margin-top:8px}
+.tchoices{display:flex;gap:6px;flex-wrap:wrap}
+.tc{height:44px;min-width:56px;padding:0 8px;font-family:var(--disp);font-size:22px}
+.tc.on{background:#2f2a86;color:#fff7dc}
 .podium{display:flex;align-items:flex-end;justify-content:center;gap:8px;margin:6px 0 14px;min-height:220px}
 .pod{flex:1;max-width:120px;min-width:0;display:flex;flex-direction:column;align-items:center;text-align:center}
 .podn{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-family:var(--disp);font-size:22px;line-height:1.1;color:var(--pc);-webkit-text-stroke:1px #2f2a86;paint-order:stroke fill;opacity:0;animation:podIn .4s ease-out forwards}
@@ -352,10 +366,10 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   }
   var LANGS=['fr','en','de','es'];
   var I18N={
-    fr:{howMany:'Combien de joueurs ?',fewer:'Moins de joueurs',more:'Plus de joueurs',range:'joueurs (2 à 12)',nameN:'Nom du joueur {0}',playerN:'Joueur {0}',start:'Commencer la partie',notPlaying:'Ne joue pas',putBack:'Remettre',totalC:'Total : {0}',total:'Total',round:'Manche {0}',board:'Tableau',abandon:'Abandon',validate:'Valider la manche',player:'Joueur',rShort:'M',scoreboard:'Tableau des scores',backTo:'Retour à la manche {0}',roundDone:'Manche {0} validée',next:'Manche suivante',fix:'Corriger la manche',newGame:'Nouvelle partie',confAbandon:'Confirmer l’abandon',confReset:'Confirmer : tout effacer',noRound:'Aucune manche validée',needOne:'Au moins un joueur doit jouer',card:'Carte {0}',target:'CIBLEZ UN JOUEUR',subTxt:'SOUSTRAYEZ {0} À VOTRE SCORE',halfTxt:'DIVISEZ VOTRE SCORE PAR DEUX',lucky:'PORTE-BONHEUR',zeroName:'LE ZÉRO',addPlayer:'+ Joueur',winner:'Vainqueur',pts:'points',tie:'Égalité !',tieMsg:'Égalité en tête au-delà de 200 points : manche supplémentaire !',quickMode:'⚡ Rapide',cardsMode:'🃏 Cartes',hintRemove:'Pour retirer un joueur, appuie longuement sur son nom. « Remettre » le fait revenir avec ses points.'},
-    en:{howMany:'How many players?',fewer:'Fewer players',more:'More players',range:'players (2 to 12)',nameN:'Player {0} name',playerN:'Player {0}',start:'Start game',notPlaying:'Not playing',putBack:'Bring back',totalC:'Total: {0}',total:'Total',round:'Round {0}',board:'Scores',abandon:'Quit',validate:'Confirm round',player:'Player',rShort:'R',scoreboard:'Scoreboard',backTo:'Back to round {0}',roundDone:'Round {0} confirmed',next:'Next round',fix:'Fix round',newGame:'New game',confAbandon:'Confirm quit',confReset:'Confirm: erase all',noRound:'No round confirmed yet',needOne:'At least one player must play',card:'Card {0}',target:'TARGET A PLAYER',subTxt:'SUBTRACT {0} FROM YOUR SCORE',halfTxt:'DIVIDE YOUR SCORE BY TWO',lucky:'LUCKY CHARM',zeroName:'ZERO',addPlayer:'+ Player',winner:'Winner',pts:'points',tie:'Tie!',tieMsg:'Tied for the lead above 200 points: extra round!',quickMode:'⚡ Quick',cardsMode:'🃏 Cards',hintRemove:'To remove a player, press and hold their name. “Bring back” restores them with their points.'},
-    de:{howMany:'Wie viele Spieler?',fewer:'Weniger Spieler',more:'Mehr Spieler',range:'Spieler (2 bis 12)',nameN:'Name von Spieler {0}',playerN:'Spieler {0}',start:'Spiel starten',notPlaying:'Spielt nicht',putBack:'Zurückholen',totalC:'Gesamt: {0}',total:'Gesamt',round:'Runde {0}',board:'Punkte',abandon:'Aufgeben',validate:'Runde bestätigen',player:'Spieler',rShort:'R',scoreboard:'Punktetabelle',backTo:'Zurück zu Runde {0}',roundDone:'Runde {0} bestätigt',next:'Nächste Runde',fix:'Runde korrigieren',newGame:'Neues Spiel',confAbandon:'Aufgeben bestätigen',confReset:'Bestätigen: alles löschen',noRound:'Noch keine Runde bestätigt',needOne:'Mindestens ein Spieler muss spielen',card:'Karte {0}',target:'WÄHLE EINEN SPIELER',subTxt:'ZIEHE {0} VON DEINEN PUNKTEN AB',halfTxt:'TEILE DEINE PUNKTE DURCH ZWEI',lucky:'GLÜCKSBRINGER',zeroName:'NULL',addPlayer:'+ Spieler',winner:'Gewinner',pts:'Punkte',tie:'Gleichstand!',tieMsg:'Gleichstand an der Spitze über 200 Punkten: Extrarunde!',quickMode:'⚡ Schnell',cardsMode:'🃏 Karten',hintRemove:'Um einen Spieler zu entfernen, lange auf seinen Namen drücken. „Zurückholen“ holt ihn mit seinen Punkten zurück.'},
-    es:{howMany:'¿Cuántos jugadores?',fewer:'Menos jugadores',more:'Más jugadores',range:'jugadores (2 a 12)',nameN:'Nombre del jugador {0}',playerN:'Jugador {0}',start:'Empezar la partida',notPlaying:'No juega',putBack:'Reincorporar',totalC:'Total: {0}',total:'Total',round:'Ronda {0}',board:'Marcador',abandon:'Abandonar',validate:'Confirmar ronda',player:'Jugador',rShort:'R',scoreboard:'Tabla de puntuación',backTo:'Volver a la ronda {0}',roundDone:'Ronda {0} confirmada',next:'Siguiente ronda',fix:'Corregir ronda',newGame:'Nueva partida',confAbandon:'Confirmar abandono',confReset:'Confirmar: borrar todo',noRound:'Ninguna ronda confirmada',needOne:'Al menos un jugador debe jugar',card:'Carta {0}',target:'ELIGE UN JUGADOR',subTxt:'RESTA {0} A TU PUNTUACIÓN',halfTxt:'DIVIDE TU PUNTUACIÓN ENTRE DOS',lucky:'AMULETO',zeroName:'CERO',addPlayer:'+ Jugador',winner:'Ganador',pts:'puntos',tie:'¡Empate!',tieMsg:'Empate en cabeza por encima de 200 puntos: ¡ronda extra!',quickMode:'⚡ Rápido',cardsMode:'🃏 Cartas',hintRemove:'Para quitar a un jugador, mantén pulsado su nombre. « Reincorporar » lo devuelve con sus puntos.'}
+    fr:{howMany:'Combien de joueurs ?',fewer:'Moins de joueurs',more:'Plus de joueurs',range:'joueurs (2 à 12)',nameN:'Nom du joueur {0}',playerN:'Joueur {0}',start:'Commencer la partie',notPlaying:'Ne joue pas',putBack:'Remettre',totalC:'Total : {0}',total:'Total',round:'Manche {0}',board:'Tableau',abandon:'Abandon',validate:'Valider la manche',player:'Joueur',rShort:'M',scoreboard:'Tableau des scores',backTo:'Retour à la manche {0}',roundDone:'Manche {0} validée',next:'Manche suivante',fix:'Corriger la manche',newGame:'Nouvelle partie',confAbandon:'Confirmer l’abandon',confReset:'Confirmer : tout effacer',noRound:'Aucune manche validée',needOne:'Au moins un joueur doit jouer',card:'Carte {0}',target:'CIBLEZ UN JOUEUR',subTxt:'SOUSTRAYEZ {0} À VOTRE SCORE',halfTxt:'DIVISEZ VOTRE SCORE PAR DEUX',lucky:'PORTE-BONHEUR',zeroName:'LE ZÉRO',addPlayer:'+ Joueur',hof:'Palmarès',hofEmpty:'Aucune partie terminée pour l’instant.',wins:'Victoires',games:'Parties',lastGames:'Dernières parties',hofClear:'Effacer le palmarès',hintDealer:'Le nom surligné en jaune est celui du donneur.',bust:'Perdu',dealer:'Donne',replay:'Rejouer avec les mêmes joueurs',target:'Score à atteindre',stats:'Statistiques',best:'Meilleure',worst:'Pire',busts:'Perdus',winner:'Vainqueur',pts:'points',tie:'Égalité !',tieMsg:'Égalité en tête au-delà de {0} points : manche supplémentaire !',quickMode:'⚡ Rapide',cardsMode:'🃏 Cartes',hintRemove:'Pour retirer un joueur, appuie longuement sur son nom. « Remettre » le fait revenir avec ses points.'},
+    en:{howMany:'How many players?',fewer:'Fewer players',more:'More players',range:'players (2 to 12)',nameN:'Player {0} name',playerN:'Player {0}',start:'Start game',notPlaying:'Not playing',putBack:'Bring back',totalC:'Total: {0}',total:'Total',round:'Round {0}',board:'Scores',abandon:'Quit',validate:'Confirm round',player:'Player',rShort:'R',scoreboard:'Scoreboard',backTo:'Back to round {0}',roundDone:'Round {0} confirmed',next:'Next round',fix:'Fix round',newGame:'New game',confAbandon:'Confirm quit',confReset:'Confirm: erase all',noRound:'No round confirmed yet',needOne:'At least one player must play',card:'Card {0}',target:'TARGET A PLAYER',subTxt:'SUBTRACT {0} FROM YOUR SCORE',halfTxt:'DIVIDE YOUR SCORE BY TWO',lucky:'LUCKY CHARM',zeroName:'ZERO',addPlayer:'+ Player',hof:'Hall of fame',hofEmpty:'No finished game yet.',wins:'Wins',games:'Games',lastGames:'Recent games',hofClear:'Clear hall of fame',hintDealer:'The name highlighted in yellow is the dealer.',bust:'Bust',dealer:'Deals',replay:'Play again, same players',target:'Target score',stats:'Statistics',best:'Best',worst:'Worst',busts:'Busts',winner:'Winner',pts:'points',tie:'Tie!',tieMsg:'Tied for the lead above {0} points: extra round!',quickMode:'⚡ Quick',cardsMode:'🃏 Cards',hintRemove:'To remove a player, press and hold their name. “Bring back” restores them with their points.'},
+    de:{howMany:'Wie viele Spieler?',fewer:'Weniger Spieler',more:'Mehr Spieler',range:'Spieler (2 bis 12)',nameN:'Name von Spieler {0}',playerN:'Spieler {0}',start:'Spiel starten',notPlaying:'Spielt nicht',putBack:'Zurückholen',totalC:'Gesamt: {0}',total:'Gesamt',round:'Runde {0}',board:'Punkte',abandon:'Aufgeben',validate:'Runde bestätigen',player:'Spieler',rShort:'R',scoreboard:'Punktetabelle',backTo:'Zurück zu Runde {0}',roundDone:'Runde {0} bestätigt',next:'Nächste Runde',fix:'Runde korrigieren',newGame:'Neues Spiel',confAbandon:'Aufgeben bestätigen',confReset:'Bestätigen: alles löschen',noRound:'Noch keine Runde bestätigt',needOne:'Mindestens ein Spieler muss spielen',card:'Karte {0}',target:'WÄHLE EINEN SPIELER',subTxt:'ZIEHE {0} VON DEINEN PUNKTEN AB',halfTxt:'TEILE DEINE PUNKTE DURCH ZWEI',lucky:'GLÜCKSBRINGER',zeroName:'NULL',addPlayer:'+ Spieler',hof:'Bestenliste',hofEmpty:'Noch kein beendetes Spiel.',wins:'Siege',games:'Spiele',lastGames:'Letzte Spiele',hofClear:'Bestenliste löschen',hintDealer:'Der gelb markierte Name ist der Geber.',bust:'Raus',dealer:'Gibt',replay:'Nochmal mit denselben Spielern',target:'Zielpunktzahl',stats:'Statistik',best:'Beste',worst:'Schlechteste',busts:'Raus',winner:'Gewinner',pts:'Punkte',tie:'Gleichstand!',tieMsg:'Gleichstand an der Spitze über {0} Punkten: Extrarunde!',quickMode:'⚡ Schnell',cardsMode:'🃏 Karten',hintRemove:'Um einen Spieler zu entfernen, lange auf seinen Namen drücken. „Zurückholen“ holt ihn mit seinen Punkten zurück.'},
+    es:{howMany:'¿Cuántos jugadores?',fewer:'Menos jugadores',more:'Más jugadores',range:'jugadores (2 a 12)',nameN:'Nombre del jugador {0}',playerN:'Jugador {0}',start:'Empezar la partida',notPlaying:'No juega',putBack:'Reincorporar',totalC:'Total: {0}',total:'Total',round:'Ronda {0}',board:'Marcador',abandon:'Abandonar',validate:'Confirmar ronda',player:'Jugador',rShort:'R',scoreboard:'Tabla de puntuación',backTo:'Volver a la ronda {0}',roundDone:'Ronda {0} confirmada',next:'Siguiente ronda',fix:'Corregir ronda',newGame:'Nueva partida',confAbandon:'Confirmar abandono',confReset:'Confirmar: borrar todo',noRound:'Ninguna ronda confirmada',needOne:'Al menos un jugador debe jugar',card:'Carta {0}',target:'ELIGE UN JUGADOR',subTxt:'RESTA {0} A TU PUNTUACIÓN',halfTxt:'DIVIDE TU PUNTUACIÓN ENTRE DOS',lucky:'AMULETO',zeroName:'CERO',addPlayer:'+ Jugador',hof:'Palmarés',hofEmpty:'Aún no hay partidas terminadas.',wins:'Victorias',games:'Partidas',lastGames:'Últimas partidas',hofClear:'Borrar palmarés',hintDealer:'El nombre resaltado en amarillo es quien reparte.',bust:'Fuera',dealer:'Reparte',replay:'Jugar otra vez, mismos jugadores',target:'Puntuación objetivo',stats:'Estadísticas',best:'Mejor',worst:'Peor',busts:'Fuera',winner:'Ganador',pts:'puntos',tie:'¡Empate!',tieMsg:'Empate en cabeza por encima de {0} puntos: ¡ronda extra!',quickMode:'⚡ Rápido',cardsMode:'🃏 Cartas',hintRemove:'Para quitar a un jugador, mantén pulsado su nombre. « Reincorporar » lo devuelve con sus puntos.'}
   };
   var CARDN={
     fr:['UN','DEUX','TROIS','QUATRE','CINQ','SIX','SEPT','HUIT','NEUF','DIX','ONZE','DOUZE','TREIZE'],
@@ -378,6 +392,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
   function isFlip7(sel){ return sel.nums.length + (sel.lucky ? 1 : 0) + (sel.zero ? 1 : 0) >= 7; }
   function score(sel){
+    if(sel.bust) return 0;
     if(sel.manual !== undefined && sel.manual !== null) return sel.manual;
     if(sel.zero && !isFlip7(sel)) return 0;
     var sum = 0, i;
@@ -406,6 +421,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
     histScroll = 1e6; syncHist();
     app.classList.toggle('quickmode', !!state.quick);
     if(celebrate){ celebrate = false; setTimeout(confetti, 60); }
+    keepAwake();
   }
 
   /* ---------- Page 1 : joueurs ---------- */
@@ -420,7 +436,9 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
       h += '<label class="field" style="--pc:'+pcol(i)+'"><span>'+tr('nameN',i+1)+'</span>'
         + '<input type="text" data-name="'+i+'" value="'+esc(state.names[i]||'')+'" placeholder="'+tr('playerN',i+1)+'" autocomplete="off"></label>';
     }
+    h += '<div class="field tfield"><span>'+tr('target')+'</span><div class="tchoices">'+[100,150,200,250,300].map(function(v){ return '<button type="button" class="ghost tc'+(v === (state.target || TARGET) ? ' on' : '')+'" data-t="'+v+'">'+v+'</button>'; }).join('')+'</div></div>';
     h += '</div><button type="button" class="primary" data-a="start">'+tr('start')+'</button>';
+    h += '<button type="button" class="ghost" data-a="hof" style="width:100%;margin-top:10px">\ud83c\udfc6 '+tr('hof')+'</button>' + (showHof ? hofHtml(true) : '');
     app.innerHTML = h;
   }
 
@@ -544,7 +562,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
     state.players.forEach(function(p,i){
       if(state.out && state.out[i]) return;
       var live = tot[i] + (state.sel[i] ? score(state.sel[i]) : 0);
-      h += '<span class="tchip" style="--pc:'+pcol(i)+'" title="'+esc(p)+'"><b>'+esc(abbr(p, maxC))+'</b>'+live+'</span>';
+      h += '<span class="tchip'+(dealerIdx() === i ? ' isdealer' : '')+'" style="--pc:'+pcol(i)+'" title="'+esc(p)+'"><b>'+esc(abbr(p, maxC))+'</b>'+live+'</span>';
     });
     return h + '</div>';
   }
@@ -567,7 +585,63 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
     for(var k=0;k<els.length;k++) els[k].scrollLeft = histScroll;
     if(els.length) histScroll = els[0].scrollLeft;
   }
-  var TARGET = 200, celebrate = false;
+  var TARGET = 200, celebrate = false, wakeLock = null, showHof = false, HKEY = 'flip7v-games';
+  function loadGames(){ try{ var g = localStorage.getItem(HKEY); return g ? JSON.parse(g) : []; }catch(e){ return []; } }
+  function saveGames(g){ try{ localStorage.setItem(HKEY, JSON.stringify(g)); }catch(e){} }
+  function syncRecord(){
+    if(!state.gameId) state.gameId = Date.now();
+    var g = loadGames().filter(function(x){ return x.id !== state.gameId; });
+    if(state.winner != null){
+      var tot = totals();
+      g.push({ id: state.gameId, date: Date.now(), target: state.target || TARGET, rounds: state.history.length,
+        winner: state.players[state.winner], winTotal: tot[state.winner],
+        players: state.players.map(function(p,i){ return { name: p, total: tot[i], out: !!(state.out && state.out[i]) }; }).filter(function(x){ return !x.out; }) });
+    }
+    saveGames(g);
+  }
+  function hofHtml(withClear){
+    var g = loadGames();
+    var h = '<div class="panel hof"><div class="wt" style="font-size:28px;text-align:center">\ud83c\udfc6 '+tr('hof')+'</div>';
+    if(!g.length) return h + '<p class="hint">'+tr('hofEmpty')+'</p></div>';
+    var agg = {};
+    g.forEach(function(x){
+      (x.players || []).forEach(function(pl){ var k = String(pl.name).trim().toLowerCase(); agg[k] = agg[k] || { name: pl.name, wins: 0, games: 0 }; agg[k].games++; });
+      var wk = String(x.winner || '').trim().toLowerCase(); if(agg[wk]) agg[wk].wins++;
+    });
+    var rows = Object.keys(agg).map(function(k){ return agg[k]; }).sort(function(a,b){ return (b.wins - a.wins) || (b.games - a.games); });
+    h += '<div class="scroll"><table><thead><tr><th>'+tr('player')+'</th><th>'+tr('wins')+'</th><th>'+tr('games')+'</th></tr></thead><tbody>';
+    rows.forEach(function(r){ h += '<tr><td>'+esc(r.name)+'</td><td class="total">'+r.wins+'</td><td>'+r.games+'</td></tr>'; });
+    h += '</tbody></table></div><div class="hl" style="margin:12px 0 4px;text-align:center">'+tr('lastGames')+'</div>';
+    g.slice(-10).reverse().forEach(function(x){
+      var dt = ''; try{ dt = new Date(x.date).toLocaleDateString(lang()); }catch(e){}
+      h += '<div class="gline"><span>'+dt+'</span><b>\ud83c\udfc6 '+esc(x.winner)+'</b><span>'+x.winTotal+' / '+x.target+'</span></div>';
+    });
+    if(withClear) h += '<button type="button" class="ghost" data-a="hofclear" style="width:100%;margin-top:10px">'+tr('hofClear')+'</button>';
+    return h + '</div>';
+  }
+  function keepAwake(){
+    if(!('wakeLock' in navigator) || wakeLock || state.phase === 'setup' || document.visibilityState !== 'visible') return;
+    try{
+      navigator.wakeLock.request('screen').then(function(l){ wakeLock = l; l.addEventListener('release', function(){ wakeLock = null; }); }).catch(function(){});
+    }catch(e){}
+  }
+  document.addEventListener('visibilitychange', function(){ if(document.visibilityState === 'visible') keepAwake(); });
+  function dealerIdx(){
+    var act = state.players.map(function(p,i){ return i; }).filter(function(i){ return !(state.out && state.out[i]); });
+    return act.length ? act[(state.round - 1) % act.length] : -1;
+  }
+  function statsHtml(){
+    var tot = totals(), meta = state.meta || [];
+    var idx = state.players.map(function(p,i){ return i; }).filter(function(i){ return !(state.out && state.out[i]); }).sort(function(a,b){ return tot[b] - tot[a]; });
+    var h = '<div class="panel"><div class="wt" style="font-size:26px;text-align:center">\ud83d\udcca '+tr('stats')+'</div><div class="scroll"><table><thead><tr><th>'+tr('player')+'</th><th>'+tr('best')+'</th><th>'+tr('worst')+'</th><th>Flip 7</th><th>'+tr('busts')+'</th></tr></thead><tbody>';
+    idx.forEach(function(i){
+      var vals = state.history.map(function(r){ return r[i]; }).filter(function(v){ return v !== null && v !== undefined; });
+      var f7 = 0, bu = 0;
+      meta.forEach(function(m){ var x = m && m[i]; if(x){ if(x.f7) f7++; if(x.bust) bu++; } });
+      h += '<tr><td><span class="pdot" style="background:'+pcol(i)+'"></span>'+esc(state.players[i])+'</td><td>'+(vals.length ? Math.max.apply(null, vals) : '\u2013')+'</td><td>'+(vals.length ? Math.min.apply(null, vals) : '\u2013')+'</td><td>'+f7+'</td><td>'+bu+'</td></tr>';
+    });
+    return h + '</tbody></table></div></div>';
+  }
   function podiumHtml(){
     var tot = totals();
     var idx = state.players.map(function(p,i){ return i; }).filter(function(i){ return !(state.out && state.out[i]); }).sort(function(a,b){ return tot[b] - tot[a]; }).slice(0,3);
@@ -601,11 +675,11 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
       if(tot[i] > best){ best = tot[i]; who = [i]; } else if(tot[i] === best) who.push(i);
     });
     state.winner = null; state.tie = false;
-    if(best >= TARGET){ if(who.length === 1) state.winner = who[0]; else state.tie = true; }
+    if(best >= (state.target || TARGET)){ if(who.length === 1) state.winner = who[0]; else state.tie = true; }
   }
   function endBanner(){
-    if(state.winner != null) return '<div class="panel winner" style="--pc:'+pcol(state.winner)+'"><div class="wt">🏆 '+tr('winner')+'</div><div class="wn">'+esc(state.players[state.winner])+'</div><div class="ws">'+totals()[state.winner]+' '+tr('pts')+'</div></div>' + podiumHtml();
-    if(state.tie) return '<div class="panel tie"><div class="wt">'+tr('tie')+'</div><div class="ws">'+tr('tieMsg')+'</div></div>';
+    if(state.winner != null) return '<div class="panel winner" style="--pc:'+pcol(state.winner)+'"><div class="wt">🏆 '+tr('winner')+'</div><div class="wn">'+esc(state.players[state.winner])+'</div><div class="ws">'+totals()[state.winner]+' '+tr('pts')+'</div></div>' + podiumHtml() + statsHtml() + hofHtml(false);
+    if(state.tie) return '<div class="panel tie"><div class="wt">'+tr('tie')+'</div><div class="ws">'+tr('tieMsg', state.target || TARGET)+'</div></div>';
     return '';
   }
   function isQuick(i){ return !!state.quick && !(state.cardsFor && state.cardsFor[i]); }
@@ -631,8 +705,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
       return '<section class="panel" data-p="'+i+'" style="--pc:'+pcol(i)+'"><div class="phead" style="margin:0;align-items:center"><div class="pname" style="opacity:.55">'+esc(p)+' – '+tr('notPlaying')+'</div><button type="button" class="ghost" data-p="'+i+'" data-o="1">'+tr('putBack')+'</button></div></section>';
     }
     var h = '<section class="panel" data-p="'+i+'" style="--pc:'+pcol(i)+'"><div class="phead"><div style="min-width:0">'
-      + '<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap"><div class="pname">'+esc(p)+'</div><div class="ptotal" style="font-family:var(--disp);font-size:28px;line-height:1;letter-spacing:.04em;color:var(--ink)">'+tr('totalC',t)+'</div></div>'+histLine(i)+'</div>'
-      + (isFlip7(s) ? '<div class="f7badge">Flip 7 <span class="f7plus">+15</span></div>' : '') + '<div class="pright">'+(isQuick(i) ? '<input class="qin" type="number" data-q="'+i+'" enterkeyhint="next" placeholder="0" aria-label="Score" value="'+(s.manual!=null ? s.manual : (score(s) || ''))+'">' : editIdx===i ? '<div class="pedit"><input type="number" inputmode="numeric" value="'+sc+'" aria-label="Score"><div style="display:flex;gap:4px"><button type="button" class="ghost" data-a="mok" data-i="'+i+'">OK</button><button type="button" class="ghost" data-a="mauto" data-i="'+i+'">Auto</button></div></div>' : '<div class="pscore'+(sc<0?' neg':'')+(s.manual!=null?' manual':'')+'" data-score="'+i+'">'+sc+'</div>')+(state.quick ? '<button type="button" class="minib cardsb" data-p="'+i+'" data-c="1" aria-label="Mode">'+(isQuick(i) ? '🃏' : '⚡')+'</button>' : '<button type="button" class="minib" data-p="'+i+'" data-m="1" aria-label="Cartes">'+((state.mini && state.mini[i]) ? '▾' : '▴')+'</button>')+'</div></div>';
+      + '<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap"><div class="pname'+(dealerIdx() === i ? ' isdealer' : '')+'">'+esc(p)+'</div><div class="ptotal" style="font-family:var(--disp);font-size:28px;line-height:1;letter-spacing:.04em;color:var(--ink)">'+tr('totalC',t)+'</div></div>'+histLine(i)+'</div>'
+      + (isFlip7(s) ? '<div class="f7badge">Flip 7 <span class="f7plus">+15</span></div>' : '') + '<div class="pright">'+(isQuick(i) ? '<input class="qin'+(s.bust?' bust':'')+'" type="number" data-q="'+i+'" enterkeyhint="next" placeholder="0" aria-label="Score" value="'+(s.bust ? 0 : s.manual!=null ? s.manual : (score(s) || ''))+'">' : editIdx===i ? '<div class="pedit"><input type="number" inputmode="numeric" value="'+sc+'" aria-label="Score"><div style="display:flex;gap:4px"><button type="button" class="ghost" data-a="mok" data-i="'+i+'">OK</button><button type="button" class="ghost" data-a="mauto" data-i="'+i+'">Auto</button></div></div>' : '<div class="pscore'+(sc<0?' neg':'')+(s.manual!=null?' manual':'')+(s.bust?' bust':'')+'" data-score="'+i+'">'+sc+'</div>')+'<div class="pbtns"><button type="button" class="bustb'+(s.bust?' on':'')+'" data-p="'+i+'" data-b="1">'+tr('bust')+'</button>'+(state.quick ? '<button type="button" class="minib cardsb" data-p="'+i+'" data-c="1" aria-label="Mode">'+(isQuick(i) ? '🃏' : '⚡')+'</button>' : '<button type="button" class="minib" data-p="'+i+'" data-m="1" aria-label="Cartes">'+((state.mini && state.mini[i]) ? '▾' : '▴')+'</button>')+'</div></div></div>';
     h += '<div class="grid nums"'+((isQuick(i) || (state.mini && state.mini[i])) ? ' hidden' : '')+'>';
     h += '<button type="button" class="card'+(s.zero?' on':'')+'" data-p="'+i+'" data-z="1" aria-label="'+tr('card','0')+'">'+zeroCard()+'</button>';
     NUMS.forEach(function(n){
@@ -651,7 +725,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
       + '<button type="button" class="ghost" data-a="abandon">'+tr('abandon')+'</button></div>'+chipsHtml()+'</div>';
     if(addMode) h += '<div class="panel addp"><input class="addname" type="text" autocomplete="off" placeholder="'+tr('playerN', state.players.length + 1)+'"><button type="button" class="ghost" data-a="addok">OK</button><button type="button" class="ghost" data-a="addcancel">×</button></div>';
     for(var i=0;i<state.players.length;i++) h += playerCard(i);
-    h += '<p class="hint">ⓘ '+tr('hintRemove')+'</p>';
+    h += '<p class="hint">ⓘ '+tr('hintRemove')+' '+tr('hintDealer')+'</p>';
     h += '<div class="sticky"><button type="button" class="primary" data-a="validate">'+tr('validate')+'</button></div>';
     app.innerHTML = h;
   }
@@ -687,7 +761,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
       return;
     }
     var h = '<div class="topbar"><div class="round">'+tr('roundDone',done)+'</div></div>' + endBanner() + scoreboardHtml();
-    h += (state.winner != null ? '' : '<button type="button" class="primary" data-a="next">'+tr('next')+'</button>')
+    h += (state.winner != null ? '<button type="button" class="primary" data-a="replay">'+tr('replay')+'</button>' : '<button type="button" class="primary" data-a="next">'+tr('next')+'</button>')
       + '<div class="row-actions"><button type="button" class="ghost" data-a="undo">'+tr('fix')+'</button>'
       + '<button type="button" class="ghost" data-a="reset">'+tr('newGame')+'</button></div>';
     app.innerHTML = h;
@@ -711,7 +785,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
     if(!el.classList || !el.classList.contains('hin')) return;
     var p = +el.dataset.hp, r = +el.dataset.hr, v = parseInt(el.value,10);
     if(!isNaN(v) && state.history[r]) state.history[r][p] = v;
-    histEdit = null; if(state.phase!=='round') checkEnd(); save(); if(state.phase==='round') refreshCard(p); else render();
+    histEdit = null; if(state.phase!=='round'){ checkEnd(); syncRecord(); } save(); if(state.phase==='round') refreshCard(p); else render();
   });
   app.addEventListener('keydown',function(e){
     if(e.key==='Enter' && e.target.classList && e.target.classList.contains('hin')) e.target.blur();
@@ -753,7 +827,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
     var q = e.target;
     if(q.classList && q.classList.contains('qin')){
       var qi = +q.dataset.q, qs = state.sel[qi], qv = parseInt(q.value, 10);
-      qs.manual = isNaN(qv) ? null : qv;
+      qs.manual = isNaN(qv) ? null : qv; qs.bust = false;
       if(!isNaN(qv)){ qs.nums = []; qs.negs = []; qs.half = false; qs.lucky = false; qs.zero = false; }
       save(); updateChips();
       var qsec = q.closest('section'), pt = qsec && qsec.querySelector('.ptotal');
@@ -779,6 +853,11 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
     if(d.p !== undefined && state.phase==='round'){
       var i = +d.p, s = state.sel[i];
+      if(d.b !== undefined){
+        s.bust = !s.bust;
+        if(s.bust){ s.nums = []; s.negs = []; s.half = false; s.lucky = false; s.zero = false; s.manual = null; }
+        save(); refreshCard(i); return;
+      }
       if(d.c !== undefined){
         state.cardsFor = state.cardsFor || [];
         state.cardsFor[i] = !state.cardsFor[i];
@@ -806,7 +885,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
       else if(d.h !== undefined) s.half = !s.half;
       else if(d.l !== undefined) s.lucky = !s.lucky;
       else if(d.z !== undefined) s.zero = !s.zero;
-      if(d.n !== undefined || d.g !== undefined || d.h !== undefined || d.l !== undefined || d.z !== undefined) s.manual = null;
+      if(d.n !== undefined || d.g !== undefined || d.h !== undefined || d.l !== undefined || d.z !== undefined){ s.manual = null; s.bust = false; }
       save(); refreshCard(i);
       return;
     }
@@ -815,6 +894,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
       var hi = app.querySelector('.hin'); if(hi){ hi.focus(); hi.select(); }
       return;
     }
+    if(d.t !== undefined && state.phase === 'setup'){ state.target = +d.t; save(); render(); return; }
     if(d.lang){ state.lang = d.lang; save(); render(); return; }
     switch(d.a){
       case 'minus': if(state.count>2){ state.count--; save(); renderSetup(); } break;
@@ -822,7 +902,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
       case 'start':
         state.players = [];
         for(var k=0;k<state.count;k++) state.players.push((state.names[k]||'').trim() || tr('playerN',k+1));
-        state.round = 1; state.history = []; state.winner = null; state.tie = false;
+        state.round = 1; state.history = []; state.winner = null; state.tie = false; state.meta = []; state.gameId = Date.now();
         state.out = state.players.map(function(){ return false; });
         state.sel = state.players.map(emptySel);
         state.phase = 'round'; save(); render(); window.scrollTo(0,0);
@@ -830,7 +910,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
       case 'mok':
         var mk = +d.i, mv = parseInt(b.closest('.pedit').querySelector('input').value, 10);
         if(!isNaN(mv)){ var ms = state.sel[mk]; ms.nums = []; ms.negs = []; ms.half = false; ms.lucky = false; ms.zero = false; }
-        state.sel[mk].manual = isNaN(mv) ? null : mv; editIdx = null; save(); refreshCard(mk);
+        state.sel[mk].manual = isNaN(mv) ? null : mv; state.sel[mk].bust = false; editIdx = null; save(); refreshCard(mk);
         break;
       case 'mauto':
         var ak = +d.i; state.sel[ak].manual = null; editIdx = null; save(); refreshCard(ak);
@@ -840,7 +920,10 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
         var active = state.players.filter(function(p,i){ return !(state.out && state.out[i]); }).length;
         if(active < 1){ flash(b,tr('needOne')); break; }
         state.history.push(state.sel.map(function(s,i){ return (state.out && state.out[i]) ? null : score(s); }));
-        checkEnd(); celebrate = state.winner != null;
+        state.meta = state.meta || [];
+        while(state.meta.length < state.history.length - 1) state.meta.push([]);
+        state.meta.push(state.sel.map(function(s,i){ return (state.out && state.out[i]) ? null : { f7: !s.bust && s.manual == null && isFlip7(s), bust: !!s.bust }; }));
+        checkEnd(); celebrate = state.winner != null; syncRecord();
         state.last = state.sel;
         state.phase = 'recap'; save(); render(); window.scrollTo(0,0);
         break;
@@ -853,6 +936,18 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
       case 'quick':
         state.quick = !state.quick; state.cardsFor = []; editIdx = null; save(); render();
         if(state.quick){ var qf = app.querySelector('.qin'); if(qf) qf.focus(); }
+        break;
+      case 'replay':
+        state.history = []; state.meta = []; state.sel = state.players.map(emptySel); state.gameId = Date.now();
+        state.out = state.players.map(function(){ return false; }); state.mini = []; state.cardsFor = [];
+        state.round = 1; state.winner = null; state.tie = false; state.last = null; state.peek = false;
+        state.phase = 'round'; save(); render(); window.scrollTo(0,0);
+        break;
+      case 'hof':
+        showHof = !showHof; render();
+        break;
+      case 'hofclear':
+        if(confirmNow(b,'hofclear',tr('confReset'))){ saveGames([]); render(); }
         break;
       case 'addp':
         addMode = !addMode; render();
@@ -867,6 +962,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
         state.players.push(nn);
         state.sel.push(emptySel());
         state.history.forEach(function(r){ r.push(null); });
+        (state.meta || []).forEach(function(r){ r.push(null); });
         if(state.out) state.out.push(false);
         if(state.mini) state.mini.push(false);
         state.names = state.names || []; state.names[state.players.length - 1] = nn;
@@ -881,7 +977,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
         state.phase = 'round'; save(); render(); window.scrollTo(0,0);
         break;
       case 'undo':
-        state.winner = null; state.tie = false;
+        state.winner = null; state.tie = false; syncRecord();
+        if(state.meta) state.meta.length = Math.max(0, Math.min(state.meta.length, state.history.length - 1));
         if(state.history.length){
           state.history.pop();
           state.round = state.history.length + 1;
