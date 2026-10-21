@@ -224,6 +224,19 @@ td.total{font-size:26px}
 .lang{font-family:var(--disp);font-size:18px;letter-spacing:.04em;height:34px;min-width:44px;padding:0 8px;border:2px solid #2f2a86;border-radius:8px;background:#fffbea;color:#2f2a86}
 .lang.on{background:#2f2a86;color:#fff7dc}
 .f7plus{color:#fff7dc;margin-left:4px}
+.primary{white-space:nowrap;overflow:hidden;padding:0 12px}
+.sticky .primary{font-size:24px;height:54px}
+.phist{gap:6px}
+.hc{width:42px}
+.hv,.hin{font-size:26px}
+html.snap{scroll-snap-type:none;scroll-padding-top:calc(var(--tbh,0px) + env(safe-area-inset-top,0px));scroll-padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
+html.snap section.panel[data-p]{scroll-snap-align:start}
+html.snap{scroll-behavior:auto}
+@media (prefers-reduced-motion: reduce){html.snap{scroll-behavior:auto}}
+html.snap .hint{scroll-snap-align:end}
+.topbar > div:nth-child(2){flex:1 1 100%;display:flex;gap:6px;flex-wrap:nowrap;min-width:0}
+.topbar .ghost{flex:1 1 0;min-width:0;padding:0 6px}
+.topbar .ghost,.row-actions .ghost,.pedit .ghost,.addp .ghost{white-space:nowrap;overflow:hidden}
 .hof{margin-top:12px}
 .gline{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:6px 2px;border-bottom:1px solid #d9c78a;font-family:var(--disp);font-size:20px;letter-spacing:.03em;color:#2f2a86}
 .gline b{flex:1;min-width:0;font-weight:400;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -326,7 +339,33 @@ main{padding-bottom:120px}
 .topbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--bg);padding:8px 0;margin-top:-8px;box-shadow:0 6px 8px -6px rgba(47,42,134,.35)}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:11;background:var(--bg)}
 .f7badge{margin-left:auto;align-self:center;flex:none;font-family:var(--disp);font-size:28px;line-height:1;letter-spacing:.04em;color:#f5cf3a;background:#2f2a86;border:2px solid #f5cf3a;border-radius:8px;padding:6px 10px 3px;transform:rotate(-6deg);box-shadow:0 3px 0 rgba(47,42,134,.35)}
+/* Ajustements finaux (placés en dernier pour primer) */
+.tchips{overflow:hidden;justify-content:center}
+.tchip{flex:1 1 0;min-width:0;justify-content:center;padding:3px 6px 1px}
+.tchip b{max-width:none;min-width:0;overflow:hidden;text-overflow:clip}
+.hc{width:42px}
+.hv,.hin{font-size:26px}
+.topbar .ghost{padding:0 6px}
+.f7badge{font-size:17px;padding:4px 7px 2px;border-width:1.5px;border-radius:6px;transform:rotate(-4deg)}
+.scroll table{width:auto;margin:0 auto}
+.srow{display:flex;gap:8px;max-width:496px;margin:0 auto}
+.srow .primary{flex:1 1 auto;min-width:0;margin:0}
+.srow .allbust{flex:0 0 auto;height:54px;padding:0 12px;font-family:var(--disp);font-size:20px;letter-spacing:.03em;color:#e3101c;background:#fffbea;border:2px solid #2f2a86;border-radius:12px;white-space:nowrap}
+.scroll table th,.scroll table td{padding:8px 4px}
+.scroll table th:first-child,.scroll table td:first-child{padding-left:4px;padding-right:10px}
+.scroll table th:last-child,.scroll table td:last-child{padding-left:10px;padding-right:4px}
 </style>
+<script>
+/* Statistiques de visites GoatCounter : uniquement sur le site publié (github.io) */
+if(/\.github\.io$/.test(location.hostname)){
+  window.goatcounter = { endpoint: 'https://flip7-jeu.goatcounter.com/count' };
+  var gcs = document.createElement('script');
+  gcs.async = true;
+  gcs.src = 'https://gc.zgo.at/count.js';
+  gcs.setAttribute('data-goatcounter', 'https://flip7-jeu.goatcounter.com/count');
+  document.head.appendChild(gcs);
+}
+</script>
 </head>
 <body>
 <main id="app"></main>
@@ -366,10 +405,10 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   }
   var LANGS=['fr','en','de','es'];
   var I18N={
-    fr:{howMany:'Combien de joueurs ?',fewer:'Moins de joueurs',more:'Plus de joueurs',range:'joueurs (2 à 12)',nameN:'Nom du joueur {0}',playerN:'Joueur {0}',start:'Commencer la partie',notPlaying:'Ne joue pas',putBack:'Remettre',totalC:'Total : {0}',total:'Total',round:'Manche {0}',board:'Tableau',abandon:'Abandon',validate:'Valider la manche',player:'Joueur',rShort:'M',scoreboard:'Tableau des scores',backTo:'Retour à la manche {0}',roundDone:'Manche {0} validée',next:'Manche suivante',fix:'Corriger la manche',newGame:'Nouvelle partie',confAbandon:'Confirmer l’abandon',confReset:'Confirmer : tout effacer',noRound:'Aucune manche validée',needOne:'Au moins un joueur doit jouer',card:'Carte {0}',target:'CIBLEZ UN JOUEUR',subTxt:'SOUSTRAYEZ {0} À VOTRE SCORE',halfTxt:'DIVISEZ VOTRE SCORE PAR DEUX',lucky:'PORTE-BONHEUR',zeroName:'LE ZÉRO',addPlayer:'+ Joueur',hof:'Palmarès',hofEmpty:'Aucune partie terminée pour l’instant.',wins:'Victoires',games:'Parties',lastGames:'Dernières parties',hofClear:'Effacer le palmarès',hintDealer:'Le nom surligné en jaune est celui du donneur.',bust:'Perdu',dealer:'Donne',replay:'Rejouer avec les mêmes joueurs',target:'Score à atteindre',stats:'Statistiques',best:'Meilleure',worst:'Pire',busts:'Perdus',winner:'Vainqueur',pts:'points',tie:'Égalité !',tieMsg:'Égalité en tête au-delà de {0} points : manche supplémentaire !',quickMode:'⚡ Rapide',cardsMode:'🃏 Cartes',hintRemove:'Pour retirer un joueur, appuie longuement sur son nom. « Remettre » le fait revenir avec ses points.'},
-    en:{howMany:'How many players?',fewer:'Fewer players',more:'More players',range:'players (2 to 12)',nameN:'Player {0} name',playerN:'Player {0}',start:'Start game',notPlaying:'Not playing',putBack:'Bring back',totalC:'Total: {0}',total:'Total',round:'Round {0}',board:'Scores',abandon:'Quit',validate:'Confirm round',player:'Player',rShort:'R',scoreboard:'Scoreboard',backTo:'Back to round {0}',roundDone:'Round {0} confirmed',next:'Next round',fix:'Fix round',newGame:'New game',confAbandon:'Confirm quit',confReset:'Confirm: erase all',noRound:'No round confirmed yet',needOne:'At least one player must play',card:'Card {0}',target:'TARGET A PLAYER',subTxt:'SUBTRACT {0} FROM YOUR SCORE',halfTxt:'DIVIDE YOUR SCORE BY TWO',lucky:'LUCKY CHARM',zeroName:'ZERO',addPlayer:'+ Player',hof:'Hall of fame',hofEmpty:'No finished game yet.',wins:'Wins',games:'Games',lastGames:'Recent games',hofClear:'Clear hall of fame',hintDealer:'The name highlighted in yellow is the dealer.',bust:'Bust',dealer:'Deals',replay:'Play again, same players',target:'Target score',stats:'Statistics',best:'Best',worst:'Worst',busts:'Busts',winner:'Winner',pts:'points',tie:'Tie!',tieMsg:'Tied for the lead above {0} points: extra round!',quickMode:'⚡ Quick',cardsMode:'🃏 Cards',hintRemove:'To remove a player, press and hold their name. “Bring back” restores them with their points.'},
-    de:{howMany:'Wie viele Spieler?',fewer:'Weniger Spieler',more:'Mehr Spieler',range:'Spieler (2 bis 12)',nameN:'Name von Spieler {0}',playerN:'Spieler {0}',start:'Spiel starten',notPlaying:'Spielt nicht',putBack:'Zurückholen',totalC:'Gesamt: {0}',total:'Gesamt',round:'Runde {0}',board:'Punkte',abandon:'Aufgeben',validate:'Runde bestätigen',player:'Spieler',rShort:'R',scoreboard:'Punktetabelle',backTo:'Zurück zu Runde {0}',roundDone:'Runde {0} bestätigt',next:'Nächste Runde',fix:'Runde korrigieren',newGame:'Neues Spiel',confAbandon:'Aufgeben bestätigen',confReset:'Bestätigen: alles löschen',noRound:'Noch keine Runde bestätigt',needOne:'Mindestens ein Spieler muss spielen',card:'Karte {0}',target:'WÄHLE EINEN SPIELER',subTxt:'ZIEHE {0} VON DEINEN PUNKTEN AB',halfTxt:'TEILE DEINE PUNKTE DURCH ZWEI',lucky:'GLÜCKSBRINGER',zeroName:'NULL',addPlayer:'+ Spieler',hof:'Bestenliste',hofEmpty:'Noch kein beendetes Spiel.',wins:'Siege',games:'Spiele',lastGames:'Letzte Spiele',hofClear:'Bestenliste löschen',hintDealer:'Der gelb markierte Name ist der Geber.',bust:'Raus',dealer:'Gibt',replay:'Nochmal mit denselben Spielern',target:'Zielpunktzahl',stats:'Statistik',best:'Beste',worst:'Schlechteste',busts:'Raus',winner:'Gewinner',pts:'Punkte',tie:'Gleichstand!',tieMsg:'Gleichstand an der Spitze über {0} Punkten: Extrarunde!',quickMode:'⚡ Schnell',cardsMode:'🃏 Karten',hintRemove:'Um einen Spieler zu entfernen, lange auf seinen Namen drücken. „Zurückholen“ holt ihn mit seinen Punkten zurück.'},
-    es:{howMany:'¿Cuántos jugadores?',fewer:'Menos jugadores',more:'Más jugadores',range:'jugadores (2 a 12)',nameN:'Nombre del jugador {0}',playerN:'Jugador {0}',start:'Empezar la partida',notPlaying:'No juega',putBack:'Reincorporar',totalC:'Total: {0}',total:'Total',round:'Ronda {0}',board:'Marcador',abandon:'Abandonar',validate:'Confirmar ronda',player:'Jugador',rShort:'R',scoreboard:'Tabla de puntuación',backTo:'Volver a la ronda {0}',roundDone:'Ronda {0} confirmada',next:'Siguiente ronda',fix:'Corregir ronda',newGame:'Nueva partida',confAbandon:'Confirmar abandono',confReset:'Confirmar: borrar todo',noRound:'Ninguna ronda confirmada',needOne:'Al menos un jugador debe jugar',card:'Carta {0}',target:'ELIGE UN JUGADOR',subTxt:'RESTA {0} A TU PUNTUACIÓN',halfTxt:'DIVIDE TU PUNTUACIÓN ENTRE DOS',lucky:'AMULETO',zeroName:'CERO',addPlayer:'+ Jugador',hof:'Palmarés',hofEmpty:'Aún no hay partidas terminadas.',wins:'Victorias',games:'Partidas',lastGames:'Últimas partidas',hofClear:'Borrar palmarés',hintDealer:'El nombre resaltado en amarillo es quien reparte.',bust:'Fuera',dealer:'Reparte',replay:'Jugar otra vez, mismos jugadores',target:'Puntuación objetivo',stats:'Estadísticas',best:'Mejor',worst:'Peor',busts:'Fuera',winner:'Ganador',pts:'puntos',tie:'¡Empate!',tieMsg:'Empate en cabeza por encima de {0} puntos: ¡ronda extra!',quickMode:'⚡ Rápido',cardsMode:'🃏 Cartas',hintRemove:'Para quitar a un jugador, mantén pulsado su nombre. « Reincorporar » lo devuelve con sus puntos.'}
+    fr:{howMany:'Combien de joueurs ?',fewer:'Moins de joueurs',more:'Plus de joueurs',range:'joueurs (2 à 12)',nameN:'Nom du joueur {0}',playerN:'Joueur {0}',start:'Commencer la partie',notPlaying:'Ne joue pas',putBack:'Remettre',totalC:'Total : {0}',total:'Total',round:'Manche {0}',board:'Tableau',abandon:'Abandon',validate:'Valider la manche',player:'Joueur',rShort:'M',scoreboard:'Tableau des scores',backTo:'Retour à la manche {0}',roundDone:'Manche {0} validée',next:'Manche suivante',fix:'Corriger la manche',newGame:'Nouvelle partie',confAbandon:'Confirmer l’abandon',confReset:'Confirmer : tout effacer',noRound:'Aucune manche validée',needOne:'Au moins un joueur doit jouer',card:'Carte {0}',target:'CIBLEZ UN JOUEUR',subTxt:'SOUSTRAYEZ {0} À VOTRE SCORE',halfTxt:'DIVISEZ VOTRE SCORE PAR DEUX',lucky:'PORTE-BONHEUR',zeroName:'LE ZÉRO',addPlayer:'+ Joueur',allBust:'Tous perdus',hof:'Palmarès',hofEmpty:'Aucune partie terminée pour l’instant.',wins:'Victoires',games:'Parties',lastGames:'Dernières parties',hofClear:'Effacer le palmarès',hintDealer:'Le nom surligné en jaune est celui du donneur.',bust:'Perdu',dealer:'Donne',replay:'Rejouer avec les mêmes joueurs',target:'Score à atteindre',stats:'Statistiques',best:'Meilleure',worst:'Pire',busts:'Perdus',winner:'Vainqueur',pts:'points',tie:'Égalité !',tieMsg:'Égalité en tête au-delà de {0} points : manche supplémentaire !',quickMode:'⚡ Rapide',cardsMode:'🃏 Cartes',hintRemove:'Pour retirer un joueur, appuie longuement sur son nom. « Remettre » le fait revenir avec ses points.'},
+    en:{howMany:'How many players?',fewer:'Fewer players',more:'More players',range:'players (2 to 12)',nameN:'Player {0} name',playerN:'Player {0}',start:'Start game',notPlaying:'Not playing',putBack:'Bring back',totalC:'Total: {0}',total:'Total',round:'Round {0}',board:'Scores',abandon:'Quit',validate:'Confirm round',player:'Player',rShort:'R',scoreboard:'Scoreboard',backTo:'Back to round {0}',roundDone:'Round {0} confirmed',next:'Next round',fix:'Fix round',newGame:'New game',confAbandon:'Confirm quit',confReset:'Confirm: erase all',noRound:'No round confirmed yet',needOne:'At least one player must play',card:'Card {0}',target:'TARGET A PLAYER',subTxt:'SUBTRACT {0} FROM YOUR SCORE',halfTxt:'DIVIDE YOUR SCORE BY TWO',lucky:'LUCKY CHARM',zeroName:'ZERO',addPlayer:'+ Player',allBust:'All bust',hof:'Hall of fame',hofEmpty:'No finished game yet.',wins:'Wins',games:'Games',lastGames:'Recent games',hofClear:'Clear hall of fame',hintDealer:'The name highlighted in yellow is the dealer.',bust:'Bust',dealer:'Deals',replay:'Play again, same players',target:'Target score',stats:'Statistics',best:'Best',worst:'Worst',busts:'Busts',winner:'Winner',pts:'points',tie:'Tie!',tieMsg:'Tied for the lead above {0} points: extra round!',quickMode:'⚡ Quick',cardsMode:'🃏 Cards',hintRemove:'To remove a player, press and hold their name. “Bring back” restores them with their points.'},
+    de:{howMany:'Wie viele Spieler?',fewer:'Weniger Spieler',more:'Mehr Spieler',range:'Spieler (2 bis 12)',nameN:'Name von Spieler {0}',playerN:'Spieler {0}',start:'Spiel starten',notPlaying:'Spielt nicht',putBack:'Zurückholen',totalC:'Gesamt: {0}',total:'Gesamt',round:'Runde {0}',board:'Punkte',abandon:'Aufgeben',validate:'Runde bestätigen',player:'Spieler',rShort:'R',scoreboard:'Punktetabelle',backTo:'Zurück zu Runde {0}',roundDone:'Runde {0} bestätigt',next:'Nächste Runde',fix:'Runde korrigieren',newGame:'Neues Spiel',confAbandon:'Aufgeben bestätigen',confReset:'Bestätigen: alles löschen',noRound:'Noch keine Runde bestätigt',needOne:'Mindestens ein Spieler muss spielen',card:'Karte {0}',target:'WÄHLE EINEN SPIELER',subTxt:'ZIEHE {0} VON DEINEN PUNKTEN AB',halfTxt:'TEILE DEINE PUNKTE DURCH ZWEI',lucky:'GLÜCKSBRINGER',zeroName:'NULL',addPlayer:'+ Spieler',allBust:'Alle raus',hof:'Bestenliste',hofEmpty:'Noch kein beendetes Spiel.',wins:'Siege',games:'Spiele',lastGames:'Letzte Spiele',hofClear:'Bestenliste löschen',hintDealer:'Der gelb markierte Name ist der Geber.',bust:'Raus',dealer:'Gibt',replay:'Nochmal mit denselben Spielern',target:'Zielpunktzahl',stats:'Statistik',best:'Beste',worst:'Schlechteste',busts:'Raus',winner:'Gewinner',pts:'Punkte',tie:'Gleichstand!',tieMsg:'Gleichstand an der Spitze über {0} Punkten: Extrarunde!',quickMode:'⚡ Schnell',cardsMode:'🃏 Karten',hintRemove:'Um einen Spieler zu entfernen, lange auf seinen Namen drücken. „Zurückholen“ holt ihn mit seinen Punkten zurück.'},
+    es:{howMany:'¿Cuántos jugadores?',fewer:'Menos jugadores',more:'Más jugadores',range:'jugadores (2 a 12)',nameN:'Nombre del jugador {0}',playerN:'Jugador {0}',start:'Empezar la partida',notPlaying:'No juega',putBack:'Reincorporar',totalC:'Total: {0}',total:'Total',round:'Ronda {0}',board:'Marcador',abandon:'Abandonar',validate:'Confirmar ronda',player:'Jugador',rShort:'R',scoreboard:'Tabla de puntuación',backTo:'Volver a la ronda {0}',roundDone:'Ronda {0} confirmada',next:'Siguiente ronda',fix:'Corregir ronda',newGame:'Nueva partida',confAbandon:'Confirmar abandono',confReset:'Confirmar: borrar todo',noRound:'Ninguna ronda confirmada',needOne:'Al menos un jugador debe jugar',card:'Carta {0}',target:'ELIGE UN JUGADOR',subTxt:'RESTA {0} A TU PUNTUACIÓN',halfTxt:'DIVIDE TU PUNTUACIÓN ENTRE DOS',lucky:'AMULETO',zeroName:'CERO',addPlayer:'+ Jugador',allBust:'Todos fuera',hof:'Palmarés',hofEmpty:'Aún no hay partidas terminadas.',wins:'Victorias',games:'Partidas',lastGames:'Últimas partidas',hofClear:'Borrar palmarés',hintDealer:'El nombre resaltado en amarillo es quien reparte.',bust:'Fuera',dealer:'Reparte',replay:'Jugar otra vez, mismos jugadores',target:'Puntuación objetivo',stats:'Estadísticas',best:'Mejor',worst:'Peor',busts:'Fuera',winner:'Ganador',pts:'puntos',tie:'¡Empate!',tieMsg:'Empate en cabeza por encima de {0} puntos: ¡ronda extra!',quickMode:'⚡ Rápido',cardsMode:'🃏 Cartas',hintRemove:'Para quitar a un jugador, mantén pulsado su nombre. « Reincorporar » lo devuelve con sus puntos.'}
   };
   var CARDN={
     fr:['UN','DEUX','TROIS','QUATRE','CINQ','SIX','SEPT','HUIT','NEUF','DIX','ONZE','DOUZE','TREIZE'],
@@ -422,6 +461,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
     app.classList.toggle('quickmode', !!state.quick);
     if(celebrate){ celebrate = false; setTimeout(confetti, 60); }
     keepAwake();
+    fitButtons();
+    updateSnap();
   }
 
   /* ---------- Page 1 : joueurs ---------- */
@@ -533,7 +574,6 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
     var h = '<div class="phist">';
     state.history.forEach(function(r,k){
       var v = r[i];
-      if(k>0) h += '<div class="hp">+</div>';
       h += '<div class="hc"><div class="hl">'+tr('rShort')+(k+1)+'</div>';
       if(histEdit && histEdit.p===i && histEdit.r===k) h += '<input class="hin" type="number" inputmode="numeric" data-hp="'+i+'" data-hr="'+k+'" value="'+(v==null?'':v)+'">';
       else h += '<button type="button" class="hv" data-hp="'+i+'" data-hr="'+k+'">'+(v==null?'–':v)+'</button>';
@@ -566,7 +606,88 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
     });
     return h + '</div>';
   }
-  window.addEventListener('resize', function(){ updateChips(); });
+  function fitButtons(){
+    var bs = document.querySelectorAll('.primary, .topbar .ghost, .row-actions .ghost, .pedit .ghost, .addp .ghost');
+    for(var k=0;k<bs.length;k++){
+      var bt = bs[k]; bt.style.fontSize = '';
+      var fs = parseFloat(getComputedStyle(bt).fontSize) || 28, guard = 0;
+      while(bt.scrollWidth > bt.clientWidth && fs > 12 && guard++ < 40){ fs -= 1; bt.style.fontSize = fs + 'px'; }
+    }
+  }
+  var snapAnim = null, animating = false, animTarget = null, gesture = null, wheelLock = 0;
+  function snapTops(){
+    var secs = app.querySelectorAll('section.panel[data-p]'), tb = app.querySelector('.topbar');
+    if(!secs.length || !tb) return null;
+    var off = (parseFloat(getComputedStyle(tb).top) || 0) + tb.offsetHeight + 8;
+    var y = window.scrollY, maxY = Math.max(0, document.documentElement.scrollHeight - window.innerHeight), arr = [];
+    for(var k=0;k<secs.length;k++) arr.push(Math.max(0, Math.min(maxY, secs[k].getBoundingClientRect().top + y - off)));
+    return arr;
+  }
+  function nearestIdx(tops, y){
+    var bi = 0, bd = Infinity;
+    for(var k=0;k<tops.length;k++){ var dd = Math.abs(tops[k] - y); if(dd < bd){ bd = dd; bi = k; } }
+    return bi;
+  }
+  function animateTo(best){
+    var y0 = window.scrollY, dist = best - y0;
+    var reduce = false; try{ reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; }catch(e){}
+    cancelAnimationFrame(snapAnim);
+    if(reduce || Math.abs(dist) < 1){ window.scrollTo(0, best); animating = false; animTarget = null; return; }
+    var dur = Math.min(550, 280 + Math.abs(dist) * 0.5), t0 = null;
+    animating = true; animTarget = best;
+    function step(ts){
+      if(t0 === null) t0 = ts;
+      var p = Math.min(1, (ts - t0) / dur), e = 1 - Math.pow(1 - p, 3);
+      window.scrollTo(0, y0 + dist * e);
+      if(p < 1) snapAnim = requestAnimationFrame(step); else { animating = false; animTarget = null; }
+    }
+    snapAnim = requestAnimationFrame(step);
+  }
+  function page(dir){
+    if(state.phase !== 'round') return;
+    var tops = snapTops(); if(!tops) return;
+    var cur = (animating && animTarget !== null) ? animTarget : window.scrollY;
+    var idx = Math.max(0, Math.min(tops.length - 1, nearestIdx(tops, cur) + dir));
+    animateTo(tops[idx]);
+  }
+  window.addEventListener('touchstart', function(e){
+    if(e.touches.length !== 1){ gesture = null; return; }
+    gesture = { x: e.touches[0].clientX, y: e.touches[0].clientY, axis: null, done: false };
+  }, { passive: true });
+  window.addEventListener('touchmove', function(e){
+    if(!gesture || state.phase !== 'round') return;
+    var t = e.touches[0], dx = t.clientX - gesture.x, dy = t.clientY - gesture.y;
+    if(!gesture.axis){
+      if(Math.abs(dx) < 6 && Math.abs(dy) < 6) return;
+      gesture.axis = Math.abs(dy) > Math.abs(dx) ? 'y' : 'x';
+    }
+    if(gesture.axis !== 'y') return;
+    if(e.cancelable) e.preventDefault();
+    if(!gesture.done && Math.abs(dy) > 10){ gesture.done = true; page(dy < 0 ? 1 : -1); }
+  }, { passive: false });
+  window.addEventListener('touchend', function(){ gesture = null; }, { passive: true });
+  window.addEventListener('focusout', function(){
+    setTimeout(function(){ var ae = document.activeElement; if(state.phase === 'round' && !(ae && ae.tagName === 'INPUT')) page(0); }, 250);
+  });
+  window.addEventListener('wheel', function(e){
+    if(state.phase !== 'round' || Math.abs(e.deltaY) < Math.abs(e.deltaX)) return;
+    if(e.cancelable) e.preventDefault();
+    var now = Date.now(); if(now < wheelLock) return;
+    wheelLock = now + 450;
+    page(e.deltaY > 0 ? 1 : -1);
+  }, { passive: false });
+  function updateSnap(){
+    var tbx = app.querySelector('.topbar'), secx = app.querySelectorAll('section.panel[data-p]');
+    if(state.phase === 'round' && tbx && secx.length){
+      var offx = (parseFloat(getComputedStyle(tbx).top) || 0) + tbx.offsetHeight + 8;
+      app.style.paddingBottom = Math.max(120, Math.ceil(window.innerHeight - offx - secx[secx.length - 1].offsetHeight)) + 'px';
+    } else app.style.paddingBottom = '';
+    var root = document.documentElement, tb = app.querySelector('.topbar');
+    root.classList.toggle('snap', state.phase === 'round');
+    if(tb) root.style.setProperty('--tbh', Math.ceil(tb.getBoundingClientRect().height + 8) + 'px');
+  }
+  if(document.fonts && document.fonts.ready) document.fonts.ready.then(function(){ fitButtons(); updateSnap(); });
+  window.addEventListener('resize', function(){ updateChips(); fitButtons(); updateSnap(); });
   function chipsHtmlOld(){
     var tot = totals(), h = '<div class="tchips">';
     state.players.forEach(function(p,i){
@@ -726,7 +847,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
     if(addMode) h += '<div class="panel addp"><input class="addname" type="text" autocomplete="off" placeholder="'+tr('playerN', state.players.length + 1)+'"><button type="button" class="ghost" data-a="addok">OK</button><button type="button" class="ghost" data-a="addcancel">×</button></div>';
     for(var i=0;i<state.players.length;i++) h += playerCard(i);
     h += '<p class="hint">ⓘ '+tr('hintRemove')+' '+tr('hintDealer')+'</p>';
-    h += '<div class="sticky"><button type="button" class="primary" data-a="validate">'+tr('validate')+'</button></div>';
+    h += '<div class="sticky"><div class="srow"><button type="button" class="ghost allbust" data-a="allbust">\ud83d\udca5 '+tr('allBust')+'</button><button type="button" class="primary" data-a="validate">'+tr('validate')+'</button></div></div>';
     app.innerHTML = h;
   }
   function refreshCard(i){
@@ -735,7 +856,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
     var tmp = document.createElement('div');
     tmp.innerHTML = playerCard(i);
     card.replaceWith(tmp.firstChild);
-    syncHist(); updateChips();
+    syncHist(); updateChips(); updateSnap();
   }
 
   /* ---------- Récap / tableau ---------- */
@@ -863,7 +984,6 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
         state.cardsFor[i] = !state.cardsFor[i];
         if(state.cardsFor[i]) s.manual = null;
         save(); refreshCard(i);
-        if(!state.cardsFor[i]){ var qe = app.querySelector('section[data-p="'+i+'"] .qin'); if(qe){ qe.focus(); qe.select(); } }
         return;
       }
       if(d.m !== undefined){
@@ -871,7 +991,6 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
         state.mini[i] = !state.mini[i];
         if(state.mini[i]) editIdx = i;
         save(); refreshCard(i);
-        if(state.mini[i]){ var mi = app.querySelector('.pedit input'); if(mi){ mi.focus(); mi.select(); } }
         return;
       }
       if(d.o !== undefined){
@@ -935,7 +1054,6 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
         break;
       case 'quick':
         state.quick = !state.quick; state.cardsFor = []; editIdx = null; save(); render();
-        if(state.quick){ var qf = app.querySelector('.qin'); if(qf) qf.focus(); }
         break;
       case 'replay':
         state.history = []; state.meta = []; state.sel = state.players.map(emptySel); state.gameId = Date.now();
@@ -948,6 +1066,12 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
         break;
       case 'hofclear':
         if(confirmNow(b,'hofclear',tr('confReset'))){ saveGames([]); render(); }
+        break;
+      case 'allbust':
+        var actIdx = state.players.map(function(p,i){ return i; }).filter(function(i){ return !(state.out && state.out[i]); });
+        var allOn = actIdx.every(function(i){ return state.sel[i] && state.sel[i].bust; });
+        actIdx.forEach(function(i){ var ss = state.sel[i]; ss.bust = !allOn; if(!allOn){ ss.nums = []; ss.negs = []; ss.half = false; ss.lucky = false; ss.zero = false; ss.manual = null; } });
+        editIdx = null; save(); render();
         break;
       case 'addp':
         addMode = !addMode; render();
