@@ -356,6 +356,9 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .scroll table th:last-child,.scroll table td:last-child{padding-left:10px;padding-right:4px}
 .pick{font-family:var(--disp);font-size:20px;letter-spacing:.03em;line-height:1.1;white-space:nowrap;padding:5px 10px 3px;border:2px solid #2f2a86;border-radius:8px;background:#fffbea;color:#2f2a86}
 .pick.on{background:#2f2a86;color:#fff7dc}
+.scroll table.stats th,.scroll table.stats td{padding:8px 4px;font-size:17px}
+.scroll table.stats th:first-child,.scroll table.stats td:first-child{min-width:0;position:static;box-shadow:none}
+.scroll table.stats th:last-child,.scroll table.stats td:last-child{min-width:0;position:static;box-shadow:none;padding-left:4px}
 </style>
 <script>
 /* Statistiques de visites GoatCounter : uniquement sur le site publié (github.io) */
@@ -787,7 +790,7 @@ if(/\.github\.io$/.test(location.hostname)){
   function statsHtml(){
     var tot = totals(), meta = state.meta || [];
     var idx = state.players.map(function(p,i){ return i; }).filter(function(i){ return !(state.out && state.out[i]); }).sort(function(a,b){ return tot[b] - tot[a]; });
-    var h = '<div class="panel"><div class="wt" style="font-size:26px;text-align:center">\ud83d\udcca '+tr('stats')+'</div><div class="scroll"><table><thead><tr><th>'+tr('player')+'</th><th>'+tr('best')+'</th><th>'+tr('worst')+'</th><th>Flip 7</th><th>'+tr('busts')+'</th></tr></thead><tbody>';
+    var h = '<div class="panel"><div class="wt" style="font-size:26px;text-align:center">\ud83d\udcca '+tr('stats')+'</div><div class="scroll"><table class="stats"><thead><tr><th>'+tr('player')+'</th><th>'+tr('best')+'</th><th>'+tr('worst')+'</th><th>Flip 7</th><th>'+tr('busts')+'</th></tr></thead><tbody>';
     idx.forEach(function(i){
       var vals = state.history.map(function(r){ return r[i]; }).filter(function(v){ return v !== null && v !== undefined; });
       var f7 = 0, bu = 0;
@@ -866,6 +869,7 @@ if(/\.github\.io$/.test(location.hostname)){
       [0,1,2,3,4,5,6,7,8,9,10,11,12].forEach(function(n){
         h += '<button type="button" class="card'+(s.nums.indexOf(n)>=0?' on':'')+'" data-p="'+i+'" data-n="'+n+'" aria-label="'+tr('card',n)+'">'+numberCard(n)+'</button>';
       });
+      h += '<span class="cardgap" aria-hidden="true"></span>';
       [2,4,6,8,10].forEach(function(n){
         h += '<button type="button" class="card'+(s.negs.indexOf(n)>=0?' on':'')+'" data-p="'+i+'" data-g="'+n+'" aria-label="'+tr('card','+'+n)+'">'+plusCard(n)+'</button>';
       });
